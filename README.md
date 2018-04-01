@@ -1,15 +1,3 @@
-# A starter webpack project for React
+I went on a quick roadtrip around NZ. I thought that righting a little quiz would be a fun way to have friends and family, see how my adventure went. This will also be a good remind for me :)
 
-This is a starter project that uses webpack to transpile and bundle ES6 React code. To use, consider these steps:
-
-* Fork this repo
-* Rename your repo according to the app you're building
-
-```sh
-git clone https://github.com/[your-account]/[your-app].git
-cd [your-app] && yarn
-```
-
-To start the development server with a watcher that rebuilds your code, run `yarn dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server that can be started with `npm run server`.
-
-Additional components should be placed in `client/components`.
+I intend to have a number of quiz topics (music, sights, pictures etc.,) and a speed round, taking 10 randomly assigned questions and give the user a set amount of time to answer the questions.
