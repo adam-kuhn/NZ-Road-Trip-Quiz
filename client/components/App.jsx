@@ -1,10 +1,10 @@
 import React from 'react'
+import Landing from './Landing'
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <Landing />
   )
 }
 
 export default App
-
