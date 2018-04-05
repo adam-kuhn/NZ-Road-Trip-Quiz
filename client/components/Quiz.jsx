@@ -1,9 +1,6 @@
 import React from 'react'
 
 class Quiz extends React.Component {
-  constructor (props) {
-    super(props)
-  }
   componentDidMount () {
   // make api call with params, to get questions
   }
