@@ -1,9 +1,17 @@
 import React from 'react'
-import Landing from './Landing'
+import {HashRouter as Router, Route} from 'react-router-dom'
+
+import Home from './Home'
+import Quiz from './Quiz'
 
 const App = () => {
   return (
-    <Landing />
+    <Router>
+      <div>
+        <Route path='/' component={Home} />
+        <Route path='/quiz/:topic' component={Quiz} />
+      </div>
+    </Router>
   )
 }
 
