@@ -3,7 +3,9 @@ const router = express.Router()
 
 // const db = require('../db')
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
+  console.log('req', req.body)
+  console.log ('paarams', req.params)
   const result = {
     hi: 'hi'
   }

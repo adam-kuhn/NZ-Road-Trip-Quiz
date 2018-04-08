@@ -1,18 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import request from 'superagent'
 
 import Questions from './Questions'
 
+import {getQuiz} from '../actions'
+
 class Quiz extends React.Component {
   componentDidMount () {
-    return request
-      .post('/api/v1/quiz')
-      .set('Content-Type', 'applicatoin/json')
-      .send()
-      .then(res => {
-        console.log(res)
-      })
+    console.log(this.props.match.params.topic)
+    this.props.dispatch(getQuiz(this.props.match.params.topic))
   }
+  
   render () {
     return (
       <div>
@@ -22,4 +21,4 @@ class Quiz extends React.Component {
   }
 }
 
-export default Quiz
+export default connect()(Quiz)
