@@ -9,9 +9,16 @@ import {getQuiz} from '../actions'
 class Quiz extends React.Component {
   componentDidMount () {
     console.log(this.props.match.params.topic)
-    this.props.dispatch(getQuiz(this.props.match.params.topic))
+    const quizTopic = {topic: this.props.match.params.topic}
+    request
+      .post('/api/v1/quiz')
+      .set('Content-Type', 'application/json')
+      .send(quizTopic)
+      .then(res => {
+        console.log(res)
+      })
   }
-  
+
   render () {
     return (
       <div>

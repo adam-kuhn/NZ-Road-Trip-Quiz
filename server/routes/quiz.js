@@ -3,9 +3,8 @@ const router = express.Router()
 
 // const db = require('../db')
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   console.log('req', req.body)
-  console.log ('paarams', req.params)
   const result = {
     hi: 'hi'
   }
