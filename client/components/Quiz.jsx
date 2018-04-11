@@ -29,10 +29,15 @@ class Quiz extends React.Component {
         console.log(res)
       })
   }
+
+  capitilize (topic) {
+    return topic.charAt(0).toUpperCase() + topic.slice(1)
+  }
   render () {
+    const quizTopic = this.capitilize(this.props.match.params.topic)
     return (
       <div>
-        <h1>{this.props.match.params.topic} quiz</h1>
+        <h1>{quizTopic} quiz</h1>
       </div>
     )
   }
