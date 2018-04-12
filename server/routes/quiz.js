@@ -6,8 +6,8 @@ const db = require('../db')
 router.post('/', (req, res) => {
   console.log('req', req.body)
   db(req.body.topic)
-    .then(result => {
-      // console.log(result)
+    .then(quiz => {
+      console.log(quiz)
       res.status(200).send()
     })
 })

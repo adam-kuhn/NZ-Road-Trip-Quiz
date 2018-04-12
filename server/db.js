@@ -2,11 +2,8 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
-const util = require('util')
-
 function getQuiz (topic, testDb) {
   const db = testDb || connection
-  console.log('db', topic)
   return db('questions')
 
     .where('questions.topic', topic)
@@ -19,13 +16,12 @@ function getQuiz (topic, testDb) {
           question: question.question
         }
       })
-      console.log(questions)
       return db('questions')
         .join('answers', 'questions.id', 'answers.questions_id')
         .where('questions.topic', topic)
-        .select('answers.id', 'answers.response', 'answers.correct', 'answers.description', 'answers.questions_id')
+        .select('answers.id', 'answers.response', 'answers.correct',
+          'answers.description', 'answers.questions_id')
         .then(result => {
-          console.log(result)
           const answers = result.map(response => {
             return {
               id: response.id,
@@ -35,7 +31,6 @@ function getQuiz (topic, testDb) {
               description: response.description
             }
           })
-          console.log(answers)
           for (let i in questions) {
             let answersToQuestion = answers.filter(answer => {
               return questions[i].id === answer.questionId
@@ -45,7 +40,7 @@ function getQuiz (topic, testDb) {
             }
             questions[i].responses = answersToQuestion
           }
-          console.log(util.inspect(questions, false, null))
+          return questions
         })
     })
     .catch(err => {
