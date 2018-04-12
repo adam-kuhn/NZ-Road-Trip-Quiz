@@ -45,7 +45,15 @@ exports.seed = function (knex, Promise) {
         {id: 39, questions_Id: 11, response: '0', correct: 'no', description: 'Correct. Responsibility and safety is COOL!'},
         {id: 40, questions_Id: 11, response: '1', correct: 'no', description: 'You must think I am a rebel.'},
         {id: 41, questions_Id: 11, response: '2', correct: 'no', description: 'I sure diiiid...not get 2 speeding tickets.'},
-        {id: 42, questions_Id: 11, response: '10', correct: 'no', description: 'Woah! You must thinkg I am crazy!'}
+        {id: 42, questions_Id: 11, response: '10', correct: 'no', description: 'Woah! You must think I am crazy!'},
+        {id: 43, questions_Id: 12, response: '131', correct: 'no', description: 'Nah'},
+        {id: 44, questions_Id: 12, response: '984', correct: 'no', description: 'My tourist level is not quite at expert'},
+        {id: 45, questions_Id: 12, response: '676', correct: 'yes', description: 'Yup...I went a little nuts on the photo taking'},
+        {id: 46, questions_Id: 12, response: '333', correct: 'no', description: 'three three three, no no no'},
+        {id: 47, questions_Id: 13, response: '1031', correct: 'no', description: 'This is a larger number then the choices given for total number of pictures...sooooo nah'},
+        {id: 48, questions_Id: 13, response: '113', correct: 'yes', description: 'Yeah budday! I probably took more selifes in these two weeks then I have in my entire life'},
+        {id: 49, questions_Id: 13, response: '42', correct: 'no', description: 'It is the answer to life, but not to my selfies'},
+        {id: 50, questions_Id: 13, response: '117', correct: 'no', description: 'Master Cheif, Halo, wicked game, but not correct.'}
       ])
     })
 }
