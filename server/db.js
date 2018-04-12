@@ -6,10 +6,7 @@ function getQuiz (topic, testDb) {
   const db = testDb || connection
   console.log('db', topic)
   return db('questions')
-    // .join('answers', 'questions.id', 'answers.questions_id')
-    // .where('questions.topic', topic)
-    // .select('questions.question', 'questions.style',
-    //   'answers.response', 'answers.correct', 'answers.description')
+
     .where('questions.topic', topic)
     .select('question', 'style', 'id')
     .then(result => {
@@ -21,6 +18,23 @@ function getQuiz (topic, testDb) {
         }
       })
       console.log(questions)
+      return db('questions')
+        .join('answers', 'questions.id', 'answers.questions_id')
+        .where('questions.topic', topic)
+        .select('answers.response', 'answers.correct', 'answers.description', 'answers.questions_id')
+        .then(result => {
+          console.log(result)
+          const answers = result.map(response => {
+            return {
+              questionId: response.questions_id,
+              response: response.response,
+              correct: response.correct,
+              description: response.description
+            }
+          })
+          console.log(answers)
+        })
+     
     })
     .catch(err => {
       console.error(err)
