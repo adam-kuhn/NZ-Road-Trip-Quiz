@@ -13,7 +13,7 @@ class Questions extends React.Component {
   render () {
     return (
       <div>
-        <h3>{this.props.questions[0].question}</h3>
+        <h3>{this.props.questions[this.props.questionNum].question}</h3>
         <Responses />
       </div>
     )
@@ -22,7 +22,8 @@ class Questions extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    questions: state.quiz
+    questions: state.quiz.questions,
+    questionNum: state.quiz.questionNum
   }
 }
 
