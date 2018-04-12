@@ -1,14 +1,26 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-function Answers () {
-  return (
-    <ul>
-      <li>answer 1</li>
-      <li>answer 2</li>
-      <li>answer 3</li>
-      <li>answer 4</li>
-    </ul>
-  )
+class Answers extends React.Component {
+  render () {
+    return (
+      <div>
+        {this.props.answers.map(answer => {
+          return (
+            <label key={answer.id}>{answer.response}
+              <input type='radio' value={answer.correct} />
+            </label>
+          )
+        })}
+      </div>
+    )
+  }
 }
 
-export default Answers
+function mapStateToProps (state) {
+  return {
+    answers: state.quiz.questions[state.quiz.questionNum].responses
+  }
+}
+
+export default connect(mapStateToProps)(Answers)
