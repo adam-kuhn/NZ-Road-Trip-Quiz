@@ -5,7 +5,6 @@ const connection = require('knex')(config)
 function getQuiz (topic, testDb) {
   const db = testDb || connection
   return db('questions')
-
     .where('questions.topic', topic)
     .select('question', 'style', 'id')
     .then(result => {
