@@ -21,10 +21,17 @@ class Quiz extends React.Component {
     const quizTopic = this.capitilize(this.props.match.params.topic)
     return (
       <div>
-        <h1>{quizTopic} quiz</h1>
+        <h1>{quizTopic} Quiz</h1>
+        {this.props.showQuestions && <Questions />}
       </div>
     )
   }
 }
 
-export default connect()(Quiz)
+function mapStateToProps (state) {
+  return {
+    showQuestions: state.display.showQuestions
+  }
+}
+
+export default connect(mapStateToProps)(Quiz)

@@ -1,4 +1,14 @@
 import request from 'superagent'
+
+export const GOT_QUIZ = 'GOT_QUIZ'
+
+export const storeQuiz = (questions) => {
+  return {
+    type: GOT_QUIZ,
+    questions
+  }
+}
+
 export const getQuiz = (quizTopic) => {
   return dispatch => {
     request
@@ -6,7 +16,7 @@ export const getQuiz = (quizTopic) => {
       .set('Content-Type', 'application/json')
       .send({quizTopic})
       .then(res => {
-        console.log(res.body)
+        dispatch((storeQuiz(res.body)))
       })
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import Responses from './Responses'
 
@@ -9,17 +10,21 @@ class Questions extends React.Component {
       response: ''
     }
   }
-  componentDidMount () {
-    // api call for questions
-  }
   render () {
     return (
       <div>
-        <h3>This is the first Question</h3>
+        <h3>{this.props.questions[this.props.questionNum].question}</h3>
         <Responses />
       </div>
     )
   }
 }
 
-export default Questions
+function mapStateToProps (state) {
+  return {
+    questions: state.quiz.questions,
+    questionNum: state.quiz.questionNum
+  }
+}
+
+export default connect(mapStateToProps)(Questions)
