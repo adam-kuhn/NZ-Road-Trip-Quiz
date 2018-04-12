@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import request from 'superagent'
 
 import Questions from './Questions'
 
@@ -8,26 +7,11 @@ import {getQuiz} from '../actions'
 
 class Quiz extends React.Component {
   componentDidMount () {
-    console.log(this.props.match.params.topic)
-    const quizTopic = {topic: this.props.match.params.topic}
-    request
-      .post('/api/v1/quiz')
-      .set('Content-Type', 'application/json')
-      .send(quizTopic)
-      .then(res => {
-        console.log(res)
-      })
+    this.props.dispatch(getQuiz(this.props.match.params.topic))
   }
+
   componentDidUpdate () {
-    console.log(this.props.match.params.topic)
-    const quizTopic = {topic: this.props.match.params.topic}
-    request
-      .post('/api/v1/quiz')
-      .set('Content-Type', 'application/json')
-      .send(quizTopic)
-      .then(res => {
-        console.log(res.body)
-      })
+    this.props.dispatch(getQuiz(this.props.match.params.topic))
   }
 
   capitilize (topic) {

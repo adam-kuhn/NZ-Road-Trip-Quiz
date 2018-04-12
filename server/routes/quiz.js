@@ -4,7 +4,8 @@ const router = express.Router()
 const db = require('../db')
 
 router.post('/', (req, res) => {
-  db(req.body.topic)
+  console.log('req', req.body.quizTopic)
+  db(req.body.quizTopic)
     .then(quiz => {
       res.status(200).send(quiz)
     })
