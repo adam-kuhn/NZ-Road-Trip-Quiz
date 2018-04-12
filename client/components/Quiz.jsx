@@ -26,7 +26,7 @@ class Quiz extends React.Component {
       .set('Content-Type', 'application/json')
       .send(quizTopic)
       .then(res => {
-        console.log(res)
+        console.log(res.body)
       })
   }
 
