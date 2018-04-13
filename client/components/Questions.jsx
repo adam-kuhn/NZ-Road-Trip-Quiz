@@ -23,7 +23,8 @@ class Questions extends React.Component {
 function mapStateToProps (state) {
   return {
     questions: state.quiz.questions,
-    questionNum: state.quiz.questionNum
+    questionNum: state.quiz.questionNum,
+    length: state.quiz.questions.length
   }
 }
 

@@ -1,21 +1,32 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {getNextQuestion, finishedQuiz} from '../actions'
+
 class Answers extends React.Component {
   constructor () {
     super()
     this.state = {
       selected: '',
-      correct: ''
+      correct: '',
+      disabled: true
     }
     this.handleClick = this.handleClick.bind(this)
+    this.nextQuestion = this.nextQuestion.bind(this)
   }
   handleClick (evt) {
     const correct = evt.target.correct
     this.setState({
       selected: Number(evt.target.value),
-      correct: correct
+      correct,
+      disabled: false
     })
+  }
+  nextQuestion () {
+    if (this.props.questionNum === this.props.length + 1) {
+      this.props.dispatch(finishedQuiz())
+    }
+    this.props.dispatch(getNextQuestion(this.props.questionNum))
   }
 
   render () {
@@ -30,6 +41,8 @@ class Answers extends React.Component {
             </label>
           )
         })}
+        <button type='button' disabled={this.state.disabled}
+          onClick={this.nextQuestion}>Next</button>
       </div>
     )
   }
@@ -37,7 +50,8 @@ class Answers extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    answers: state.quiz.questions[state.quiz.questionNum].responses
+    answers: state.quiz.questions[state.quiz.questionNum].responses,
+    questionNum: state.quiz.questionNum
   }
 }
 
