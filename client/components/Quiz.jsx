@@ -11,9 +11,9 @@ class Quiz extends React.Component {
     this.props.dispatch(getQuiz(this.props.match.params.topic))
   }
 
-  componentDidUpdate () {
-    this.props.dispatch(getQuiz(this.props.match.params.topic))
-  }
+  // componentDidUpdate () {
+  //   this.props.dispatch(getQuiz(this.props.match.params.topic))
+  // }
 
   capitilize (topic) {
     return topic.charAt(0).toUpperCase() + topic.slice(1)
