@@ -2,15 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Questions from './Questions'
+import Completed from './Completed'
 
 import {getQuiz} from '../actions'
 
 class Quiz extends React.Component {
   componentDidMount () {
-    this.props.dispatch(getQuiz(this.props.match.params.topic))
-  }
-
-  componentDidUpdate () {
     this.props.dispatch(getQuiz(this.props.match.params.topic))
   }
 
@@ -23,6 +20,7 @@ class Quiz extends React.Component {
       <div>
         <h1>{quizTopic} Quiz</h1>
         {this.props.showQuestions && <Questions />}
+        {this.props.showCompleted && <Completed />}
       </div>
     )
   }
@@ -30,7 +28,8 @@ class Quiz extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    showQuestions: state.display.showQuestions
+    showQuestions: state.display.showQuestions,
+    showCompleted: state.display.showCompleted
   }
 }
 

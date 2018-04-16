@@ -1,7 +1,9 @@
-import {GOT_QUIZ} from '../actions'
+import {GOT_QUIZ, FINISHED} from '../actions'
 
 const initialState = {
-  showQuestions: false
+  showSideBar: true,
+  showQuestions: false,
+  showCompleted: false
 }
 
 function display (state = initialState, action) {
@@ -9,11 +11,22 @@ function display (state = initialState, action) {
     case (GOT_QUIZ): {
       return {
         ...state,
+        showSideBar: false,
         showQuestions: true
       }
     }
+    case (FINISHED): {
+      return {
+        ...state,
+        showQuestions: false,
+        showCompleted: true
+      }
+    }
     default: {
-      return initialState
+      return {
+        ...state,
+        initialState
+      }
     }
   }
 }

@@ -1,14 +1,58 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-function Answers () {
-  return (
-    <ul>
-      <li>answer 1</li>
-      <li>answer 2</li>
-      <li>answer 3</li>
-      <li>answer 4</li>
-    </ul>
-  )
+import {getNextQuestion, finishedQuiz} from '../actions'
+
+class Answers extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      selected: '',
+      correct: '',
+      disabled: true
+    }
+    this.handleClick = this.handleClick.bind(this)
+    this.nextQuestion = this.nextQuestion.bind(this)
+  }
+  handleClick (evt) {
+    const correct = evt.target.correct
+    this.setState({
+      selected: Number(evt.target.value),
+      correct,
+      disabled: false
+    })
+  }
+  nextQuestion () {
+    if (this.props.questionNum === this.props.length + 1) {
+      this.props.dispatch(finishedQuiz())
+    }
+    this.props.dispatch(getNextQuestion(this.props.questionNum))
+  }
+
+  render () {
+    return (
+      <div>
+        {this.props.answers.map(answer => {
+          return (
+            <label key={answer.id}>{answer.response}
+              <input type='radio' onChange={this.handleClick} value={answer.id}
+                checked={this.state.selected === answer.id}
+                data-correct={answer.correct} />
+            </label>
+          )
+        })}
+        <button type='button' disabled={this.state.disabled}
+          onClick={this.nextQuestion}>Next</button>
+      </div>
+    )
+  }
 }
 
-export default Answers
+function mapStateToProps (state) {
+  return {
+    answers: state.quiz.questions[state.quiz.questionNum].responses,
+    questionNum: state.quiz.questionNum
+  }
+}
+
+export default connect(mapStateToProps)(Answers)
