@@ -31,20 +31,7 @@ class Questions extends React.Component {
     return (
       <div>
         <h3>{this.props.questions[this.props.questionNum].question}</h3>
-        {/* <Responses /> */}
-        <div>
-          {this.props.answers.map(answer => {
-            return (
-              <label key={answer.id}>{answer.response}
-                <input type='radio' onChange={this.handleClick} value={answer.id}
-                  checked={this.state.selected === answer.id}
-                  data-correct={answer.correct} />
-              </label>
-            )
-          })}
-          <button type='button' disabled={this.state.disabled}
-            onClick={this.nextQuestion}>Next</button>
-        </div>
+        <Responses />
       </div>
     )
   }
@@ -53,10 +40,7 @@ class Questions extends React.Component {
 function mapStateToProps (state) {
   return {
     questions: state.quiz.questions,
-    questionNum: state.quiz.questionNum,
-    length: state.quiz.questions.length,
-    answers: state.quiz.questions[state.quiz.questionNum].responses
-
+    questionNum: state.quiz.questionNum
   }
 }
 
