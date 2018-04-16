@@ -27,6 +27,9 @@ class Answers extends React.Component {
       this.props.dispatch(finishedQuiz())
     }
     this.props.dispatch(getNextQuestion(this.props.questionNum))
+    this.setState({
+      disabled: true
+    })
   }
 
   render () {
