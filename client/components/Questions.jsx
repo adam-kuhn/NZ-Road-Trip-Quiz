@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Responses from './Responses'
+
 import {getNextQuestion, finishedQuiz} from '../actions'
 
 class Questions extends React.Component {
