@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import Responses from './Responses'
+import {getNextQuestion, finishedQuiz} from '../actions'
 
 class Questions extends React.Component {
   constructor (props) {
@@ -9,6 +10,22 @@ class Questions extends React.Component {
     this.state = {
       response: ''
     }
+    this.handleClick = this.handleClick.bind(this)
+    this.nextQuestion = this.nextQuestion.bind(this)
+  }
+  handleClick (evt) {
+    const correct = evt.target.correct
+    this.setState({
+      selected: Number(evt.target.value),
+      correct,
+      disabled: false
+    })
+  }
+  nextQuestion () {
+    if (this.props.questionNum === this.props.length + 1) {
+      this.props.dispatch(finishedQuiz())
+    }
+    this.props.dispatch(getNextQuestion(this.props.questionNum))
   }
   render () {
     return (
@@ -23,8 +40,7 @@ class Questions extends React.Component {
 function mapStateToProps (state) {
   return {
     questions: state.quiz.questions,
-    questionNum: state.quiz.questionNum,
-    length: state.quiz.questions.length
+    questionNum: state.quiz.questionNum
   }
 }
 

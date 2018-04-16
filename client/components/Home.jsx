@@ -1,15 +1,22 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import QuizSideBar from './QuizSideBar'
 
-function Home () {
+function Home (props) {
   return (
     <div>
       <h1>NZ Road Trip Quiz!</h1>
       <p>Select a quiz and have some fun finding out about my New Zealand Road Trip</p>
-      <QuizSideBar />
+      {props.showSideBar && <QuizSideBar />}
     </div>
   )
 }
 
-export default Home
+function mapStateToProps (state) {
+  return {
+    showSideBar: state.display.showSideBar
+  }
+}
+
+export default connect(mapStateToProps)(Home)
