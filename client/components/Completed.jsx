@@ -1,7 +1,8 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 
-import {backHome} from '../actions'
+import {reset} from '../actions'
 
 class Completed extends React.Component {
   constructor () {
@@ -11,6 +12,7 @@ class Completed extends React.Component {
 
   handleClick () {
     this.props.history.push('/')
+    this.props.dispatch(reset())
   }
 
   render () {
@@ -24,4 +26,4 @@ class Completed extends React.Component {
   }
 }
 
-export default withRouter(Completed)
+export default connect()(withRouter(Completed))

@@ -3,7 +3,7 @@ import request from 'superagent'
 export const GOT_QUIZ = 'GOT_QUIZ'
 export const NEXT_QUESTION = 'NEXT_QUESTION'
 export const FINISHED = 'FINISHED'
-export const BACK_HOME = 'BACK_HOME'
+export const RESET = 'RESET'
 
 export const storeQuiz = (questions) => {
   return {
@@ -25,9 +25,9 @@ export const finishedQuiz = () => {
   }
 }
 
-export const backHome = () => {
+export const reset = () => {
   return {
-    type: BACK_HOME
+    type: RESET
   }
 }
 

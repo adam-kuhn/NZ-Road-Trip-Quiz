@@ -1,4 +1,4 @@
-import {GOT_QUIZ, FINISHED} from '../actions'
+import {GOT_QUIZ, FINISHED, RESET} from '../actions'
 
 const initialState = {
   showSideBar: true,
@@ -21,6 +21,9 @@ function display (state = initialState, action) {
         showQuestions: false,
         showCompleted: true
       }
+    }
+    case (RESET): {
+      return initialState
     }
     default: {
       return {
