@@ -23,8 +23,9 @@ class Answers extends React.Component {
     })
   }
   nextQuestion () {
-    if (this.props.questionNum === this.props.length + 1) {
+    if (this.props.questionNum + 1 === this.props.length) {
       this.props.dispatch(finishedQuiz())
+      return
     }
     this.props.dispatch(getNextQuestion(this.props.questionNum))
     this.setState({
@@ -54,7 +55,8 @@ class Answers extends React.Component {
 function mapStateToProps (state) {
   return {
     answers: state.quiz.questions[state.quiz.questionNum].responses,
-    questionNum: state.quiz.questionNum
+    questionNum: state.quiz.questionNum,
+    length: state.quiz.questions.length
   }
 }
 
