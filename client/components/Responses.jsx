@@ -9,17 +9,32 @@ class Answers extends React.Component {
     this.state = {
       selected: '',
       correct: '',
-      disabled: true
+      description: '',
+      submit: true,
+      next: true,
+      answer: false
     }
     this.handleClick = this.handleClick.bind(this)
+    this.submitAnswer = this.submitAnswer.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
   }
   handleClick (evt) {
-    const correct = evt.target.correct
+    const correct = evt.target.getAttribute('data-correct')
+    const description = evt.target.getAttribute('data-description')
+    console.log('hi', correct)
     this.setState({
       selected: Number(evt.target.value),
       correct,
-      disabled: false
+      description,
+      submit: false
+    })
+  }
+
+  submitAnswer () {
+    this.setState({
+      next: false,
+      submit: true,
+      answer: true
     })
   }
   nextQuestion () {
@@ -29,7 +44,9 @@ class Answers extends React.Component {
     }
     this.props.dispatch(getNextQuestion(this.props.questionNum))
     this.setState({
-      disabled: true
+      submit: true,
+      next: true,
+      answer: false
     })
   }
 
@@ -41,11 +58,16 @@ class Answers extends React.Component {
             <label key={answer.id}>{answer.response}
               <input type='radio' onChange={this.handleClick} value={answer.id}
                 checked={this.state.selected === answer.id}
-                data-correct={answer.correct} />
+                data-correct={answer.correct}
+                data-description={answer.description}
+                disabled={this.state.answer} />
             </label>
           )
         })}
-        <button type='button' disabled={this.state.disabled}
+        <button type='button' disabled={this.state.submit}
+          onClick={this.submitAnswer}>
+        Submit Answer</button>
+        <button type='button' disabled={this.state.next}
           onClick={this.nextQuestion}>Next</button>
       </div>
     )
