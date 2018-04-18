@@ -46,7 +46,8 @@ class Answers extends React.Component {
   }
   nextQuestion () {
     if (this.props.questionNum + 1 === this.props.length) {
-      this.props.dispatch(finishedQuiz())
+      this.props.dispatch(finishedQuiz(this.props.match.params.topic,
+        this.state.score))
       return
     }
     this.props.dispatch(getNextQuestion(this.props.questionNum))

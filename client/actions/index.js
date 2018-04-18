@@ -19,9 +19,11 @@ export const getNextQuestion = (questionNum) => {
   }
 }
 
-export const finishedQuiz = () => {
+export const finishedQuiz = (topic, score) => {
   return {
-    type: FINISHED
+    type: FINISHED,
+    topic,
+    score
   }
 }
 

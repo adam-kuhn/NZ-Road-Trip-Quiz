@@ -26,10 +26,7 @@ function display (state = initialState, action) {
       return initialState
     }
     default: {
-      return {
-        ...state,
-        initialState
-      }
+      return state
     }
   }
 }
