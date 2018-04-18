@@ -18,8 +18,8 @@ class QuizSideBar extends React.Component {
 function mapStateToProps (state) {
   return {
     roadScore: state.score.road,
-    trekScore: state.score.trek,
-    picScore: state.score.pic,
+    trekScore: state.score.trekking,
+    picScore: state.score.picture,
     rapidScore: state.score.rapid
   }
 }

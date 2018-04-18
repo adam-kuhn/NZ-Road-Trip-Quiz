@@ -1,7 +1,7 @@
 const initialState = {
   road: 0,
-  trek: 0,
-  pic: 0,
+  trekking: 0,
+  picture: 0,
   rapid: 0
 }
 

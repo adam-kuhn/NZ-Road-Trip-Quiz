@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 
 import Description from './Description'
-import {getNextQuestion, finishedQuiz} from '../actions'
+import {getNextQuestion, finishedQuiz, correct} from '../actions'
 
 class Answers extends React.Component {
   constructor () {
@@ -13,7 +14,8 @@ class Answers extends React.Component {
       description: '',
       submit: true,
       next: true,
-      answer: false
+      answer: false,
+      score: 0
     }
     this.handleClick = this.handleClick.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
@@ -31,6 +33,11 @@ class Answers extends React.Component {
   }
 
   submitAnswer () {
+    if (this.state.correct === 'yes') {
+      this.setState({
+        score: this.state.score + 1
+      })
+    }
     this.setState({
       next: false,
       submit: true,
@@ -83,4 +90,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(Answers)
+export default connect(mapStateToProps)(withRouter(Answers))
