@@ -4,7 +4,6 @@ export const GOT_QUIZ = 'GOT_QUIZ'
 export const NEXT_QUESTION = 'NEXT_QUESTION'
 export const FINISHED = 'FINISHED'
 export const RESET = 'RESET'
-export const CORRECT = 'CORRECT'
 
 export const storeQuiz = (questions) => {
   return {
@@ -29,13 +28,6 @@ export const finishedQuiz = () => {
 export const reset = () => {
   return {
     type: RESET
-  }
-}
-
-export const correct = (topic) => {
-  return {
-    type: CORRECT,
-    topic
   }
 }
 

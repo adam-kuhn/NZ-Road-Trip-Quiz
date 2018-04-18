@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 
 import Description from './Description'
-import {getNextQuestion, finishedQuiz, correct} from '../actions'
+import {getNextQuestion, finishedQuiz} from '../actions'
 
 class Answers extends React.Component {
   constructor () {
