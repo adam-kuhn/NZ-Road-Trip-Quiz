@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import Description from './Description'
 import {getNextQuestion, finishedQuiz} from '../actions'
 
 class Answers extends React.Component {
@@ -21,7 +22,6 @@ class Answers extends React.Component {
   handleClick (evt) {
     const correct = evt.target.getAttribute('data-correct')
     const description = evt.target.getAttribute('data-description')
-    console.log('hi', correct)
     this.setState({
       selected: Number(evt.target.value),
       correct,
@@ -64,6 +64,7 @@ class Answers extends React.Component {
             </label>
           )
         })}
+        {!this.state.next && <Description text={this.state.description} />}
         <button type='button' disabled={this.state.submit}
           onClick={this.submitAnswer}>
         Submit Answer</button>
