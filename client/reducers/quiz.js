@@ -1,7 +1,6 @@
 import {GOT_QUIZ, NEXT_QUESTION, FINISHED, RESET} from '../actions'
 
 const initialState = {
-  quiz: '',
   questionNum: 0
 }
 

@@ -1,7 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 
-import {getNextQuestion, finishedQuiz} from '../actions'
+import Description from './Description'
+import {getNextQuestion, finishedQuiz, correct} from '../actions'
 
 class Answers extends React.Component {
   constructor () {
@@ -9,17 +11,37 @@ class Answers extends React.Component {
     this.state = {
       selected: '',
       correct: '',
-      disabled: true
+      description: '',
+      submit: true,
+      next: true,
+      answer: false,
+      score: 0
     }
     this.handleClick = this.handleClick.bind(this)
+    this.submitAnswer = this.submitAnswer.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
   }
   handleClick (evt) {
-    const correct = evt.target.correct
+    const correct = evt.target.getAttribute('data-correct')
+    const description = evt.target.getAttribute('data-description')
     this.setState({
       selected: Number(evt.target.value),
       correct,
-      disabled: false
+      description,
+      submit: false
+    })
+  }
+
+  submitAnswer () {
+    if (this.state.correct === 'yes') {
+      this.setState({
+        score: this.state.score + 1
+      })
+    }
+    this.setState({
+      next: false,
+      submit: true,
+      answer: true
     })
   }
   nextQuestion () {
@@ -29,7 +51,9 @@ class Answers extends React.Component {
     }
     this.props.dispatch(getNextQuestion(this.props.questionNum))
     this.setState({
-      disabled: true
+      submit: true,
+      next: true,
+      answer: false
     })
   }
 
@@ -41,11 +65,17 @@ class Answers extends React.Component {
             <label key={answer.id}>{answer.response}
               <input type='radio' onChange={this.handleClick} value={answer.id}
                 checked={this.state.selected === answer.id}
-                data-correct={answer.correct} />
+                data-correct={answer.correct}
+                data-description={answer.description}
+                disabled={this.state.answer} />
             </label>
           )
         })}
-        <button type='button' disabled={this.state.disabled}
+        {!this.state.next && <Description text={this.state.description} />}
+        <button type='button' disabled={this.state.submit}
+          onClick={this.submitAnswer}>
+        Submit Answer</button>
+        <button type='button' disabled={this.state.next}
           onClick={this.nextQuestion}>Next</button>
       </div>
     )
@@ -60,4 +90,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(Answers)
+export default connect(mapStateToProps)(withRouter(Answers))
