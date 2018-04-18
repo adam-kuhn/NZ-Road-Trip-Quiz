@@ -1,3 +1,5 @@
+import {FINISHED} from '../actions'
+
 const initialState = {
   road: 0,
   trekking: 0,
@@ -7,8 +9,14 @@ const initialState = {
 
 function score (state = initialState, action) {
   switch (action.type) {
+    case (FINISHED): {
+      return {
+        ...state,
+        [action.topic]: action.score
+      }
+    }
     default: {
-      return initialState
+      return state
     }
   }
 }
