@@ -63,12 +63,13 @@ class Answers extends React.Component {
       <div>
         {this.props.answers.map(answer => {
           return (
-            <label key={answer.id}>{answer.response}
+            <label key={answer.id}>{answer.response.includes('images') ? <img src={answer.response} /> : answer.response}
               <input type='radio' onChange={this.handleClick} value={answer.id}
                 checked={this.state.selected === answer.id}
                 data-correct={answer.correct}
                 data-description={answer.description}
                 disabled={this.state.answer} />
+              {/* <img src={answer.response} alt={answer.response} /> */}
             </label>
           )
         })}
