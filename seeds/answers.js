@@ -36,7 +36,7 @@ exports.seed = function (knex, Promise) {
         {id: 30, questions_Id: 8, response: 'West coast...', correct: 'no', description: 'Very Jurassic Park like, but still not as good as something else.'},
         {id: 31, questions_Id: 9, response: '0, I am obviously to cool to listen to Beibs', correct: 'no', description: 'Thanks, but no I am not that cool.'},
         {id: 32, questions_Id: 9, response: '10, I am a BELIEBER!', correct: 'no', description: 'Not quiet a Belieber either. But he has some cool stuff.'},
-        {id: 33, questions_Id: 9, response: 'Correct number', correct: 'yes', description: 'And I know (or at least most) of the words.'},
+        {id: 33, questions_Id: 9, response: '3', correct: 'yes', description: 'And I know all (or at least most) of the words.'},
         {id: 34, questions_Id: 9, response: '5', correct: 'no', description: 'Solid guess'},
         {id: 35, questions_Id: 10, response: '5', correct: 'no', description: 'No...Is it weird that I would keep track of something like this?'},
         {id: 36, questions_Id: 10, response: '0', correct: 'yes', description: 'When you are driving hours on end. There is no point in pressing skip'},
