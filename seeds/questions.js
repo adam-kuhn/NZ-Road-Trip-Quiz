@@ -24,7 +24,17 @@ exports.seed = function (knex, Promise) {
         {id: 18, question: 'What was my favorite hike?', style: 'multi', topic: 'trekking'},
         {id: 19, question: 'I had to doo the deed on a trek. What did I have to use for TP?', style: 'multi', topic: 'trekking'},
         {id: 20, question: 'What was the dumbest thing I did on one of my treks', style: 'multi', topic: 'trekking'},
-        {id: 21, question: 'How many blisters did I end up wtih', style: 'multi', topic: 'trekking'}
+        {id: 21, question: 'How many blisters did I end up wtih', style: 'multi', topic: 'trekking'},
+        {id: 22, question: 'How many warm meals did I have at my campsite?', style: 'multi', topic: 'fun'},
+        {id: 23, question: 'Did I write code in my tent?', style: 'multi', topic: 'fun'},
+        {id: 24, question: 'When was the trip planned?', style: 'multi', topic: 'fun'},
+        {id: 25, question: 'What crazy activity did I NOT do?', style: 'multi', topic: 'fun'},
+        {id: 26, question: 'What was my favorite experience of the trip?', style: 'multi', topic: 'fun'},
+        {id: 27, question: 'How many showers did I take?', style: 'multi', topic: 'fun'},
+        {id: 28, question: 'How many Lord of the Rings locations did I visit?', style: 'multi', topic: 'fun'},
+        {id: 29, question: 'Where do I want to go back to the most?', style: 'multi', topic: 'fun'},
+        {id: 30, question: 'How long was my trip?', style: 'multi', topic: 'fun'},
+        {id: 31, question: 'What was the best meal I had?', style: 'multi', topic: 'fun'},
       ])
     })
 }
