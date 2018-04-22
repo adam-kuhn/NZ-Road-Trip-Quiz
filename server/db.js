@@ -47,4 +47,50 @@ function getQuiz (topic, testDb) {
     })
 }
 
-module.exports = getQuiz
+function getSpeedQuiz (testDb) {
+  const db = testDb || connection
+  return db('questions')
+    .select('question', 'style', 'id')
+    .then(result => {
+      const questions = result.map(question => {
+        return {
+          id: question.id,
+          style: question.style,
+          question: question.question
+        }
+      })
+      return db('questions')
+        .join('answers', 'questions.id', 'answers.questions_id')
+        .select('answers.id', 'answers.response', 'answers.correct',
+          'answers.description', 'answers.questions_id')
+        .then(result => {
+          const answers = result.map(response => {
+            return {
+              id: response.id,
+              questionId: response.questions_id,
+              response: response.response,
+              correct: response.correct,
+              description: response.description
+            }
+          })
+          for (let i in questions) {
+            let answersToQuestion = answers.filter(answer => {
+              return questions[i].id === answer.questionId
+            })
+            for (let j in answersToQuestion) {
+              delete answersToQuestion[j].questionId
+            }
+            questions[i].responses = answersToQuestion
+          }
+          return questions
+        })
+    })
+    .catch(err => {
+      console.error(err)
+    })
+}
+
+module.exports = {
+  getQuiz,
+  getSpeedQuiz
+}
