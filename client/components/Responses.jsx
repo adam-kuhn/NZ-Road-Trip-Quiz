@@ -69,7 +69,6 @@ class Answers extends React.Component {
                 data-correct={answer.correct}
                 data-description={answer.description}
                 disabled={this.state.answer} />
-              {/* <img src={answer.response} alt={answer.response} /> */}
             </label>
           )
         })}
