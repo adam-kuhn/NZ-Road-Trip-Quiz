@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-react-webpack",
   "version": "0.2.0",
-  "description": "A webpack React starter",
+  "description": "A quiz about my NZ road trip Mar 24 - Apr 7, 2018",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
   "scripts": {
