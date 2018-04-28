@@ -31,7 +31,9 @@ class Questions extends React.Component {
   render () {
     return (
       <div>
-        <h3>{this.props.questions[this.props.questionNum].question}</h3>
+        {this.props.questions[this.props.questionNum].style === 'multi-img'
+          ? <img src={this.props.questions[this.props.questionNum].question} />
+          : <h3>{this.props.questions[this.props.questionNum].question}</h3> }
         <Responses />
       </div>
     )

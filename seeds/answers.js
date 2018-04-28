@@ -123,7 +123,11 @@ exports.seed = function (knex, Promise) {
         {id: 117, questions_Id: 31, response: 'Winnies Pizza', correct: 'yes', description: 'Chyea. I love pizza and this one was great! Had some home made sour cream/cream cheese topping, just epic.'},
         {id: 118, questions_Id: 31, response: 'Ferburger', correct: 'no', description: 'Nah. It was a good burger. But it nothing too amazing'},
         {id: 119, questions_Id: 31, response: 'McDonalds', correct: 'no', description: 'No, but I did eat here more than I would like to admit.'},
-        {id: 120, questions_Id: 31, response: 'Watties canned pasta', correct: 'no', description: 'Dang that would be sad if this was the correct answer. I did eat it a few times, and thankfully I had a few better meals a long the way.'}
+        {id: 120, questions_Id: 31, response: 'Watties canned pasta', correct: 'no', description: 'Dang that would be sad if this was the correct answer. I did eat it a few times, and thankfully I had a few better meals a long the way.'},
+        {id: 121, questions_Id: 32, response: 'Watties canned pasta', correct: 'no', description: 'Dang that would be sad if this was the correct answer. I did eat it a few times, and thankfully I had a few better meals a long the way.'},
+        {id: 122, questions_Id: 32, response: 'Watties canned pasta', correct: 'no', description: 'Dang that would be sad if this was the correct answer. I did eat it a few times, and thankfully I had a few better meals a long the way.'},
+        {id: 123, questions_Id: 32, response: 'Watties canned pasta', correct: 'no', description: 'Dang that would be sad if this was the correct answer. I did eat it a few times, and thankfully I had a few better meals a long the way.'},
+        {id: 124, questions_Id: 32, response: 'Watties canned pasta', correct: 'no', description: 'Dang that would be sad if this was the correct answer. I did eat it a few times, and thankfully I had a few better meals a long the way.'}
       ])
     })
 }

@@ -35,6 +35,7 @@ exports.seed = function (knex, Promise) {
         {id: 29, question: 'Where do I want to go back to the most?', style: 'multi', topic: 'fun'},
         {id: 30, question: 'How long was my trip?', style: 'multi', topic: 'fun'},
         {id: 31, question: 'What was the best meal I had?', style: 'multi', topic: 'fun'},
+        {id: 32, question: '/images/map_wrong3.png', style: 'multi-img', topic: 'picture'}
       ])
     })
 }
