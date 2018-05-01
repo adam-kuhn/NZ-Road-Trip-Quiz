@@ -6,13 +6,14 @@ function getQuiz (topic, testDb) {
   const db = testDb || connection
   return db('questions')
     .where('questions.topic', topic)
-    .select('question', 'style', 'id')
+    .select('question', 'style', 'id', 'image')
     .then(result => {
       const questions = result.map(question => {
         return {
           id: question.id,
           style: question.style,
-          question: question.question
+          question: question.question,
+          image: question.image
         }
       })
       return db('questions')
@@ -50,13 +51,14 @@ function getQuiz (topic, testDb) {
 function getSpeedQuiz (testDb) {
   const db = testDb || connection
   return db('questions')
-    .select('question', 'style', 'id')
+    .select('question', 'style', 'id', 'image')
     .then(result => {
       const questions = result.map(question => {
         return {
           id: question.id,
           style: question.style,
-          question: question.question
+          question: question.question,
+          image: question.image
         }
       })
       return db('questions')
