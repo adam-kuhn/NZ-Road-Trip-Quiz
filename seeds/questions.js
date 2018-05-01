@@ -37,7 +37,7 @@ exports.seed = function (knex, Promise) {
         {id: 31, question: 'What was the best meal I had?', style: 'multi', topic: 'fun'},
         {id: 32, question: 'Where abouts do you think I am?', style: 'multi-img', topic: 'picture', image: '/images/questions/east-coast.jpg'},
         {id: 33, question: 'Where was this lovely photo taken?', style: 'multi-img', topic: 'picture', image: '/images/questions/climbing_roys-peak.jpg'},
-        {id: 34, question: 'This can only really be one place. Which is it?', style: 'multi-img', topic: 'picture', image: '/images/questions/milford-sound.jpg'},
+        {id: 34, question: 'This can only really be one place(well not really, but yeah). Which is it?', style: 'multi-img', topic: 'picture', image: '/images/questions/milford-sound.jpg'},
         {id: 35, question: 'Where are these dope rocks?', style: 'multi-img', topic: 'picture', image: '/images/questions/mount-alpha-rocks.jpg'},
         {id: 36, question: 'Now we are in Middle Earth. Where though?', style: 'multi-img', topic: 'picture', image: '/images/questions/mt-sunday.jpg'},
         {id: 37, question: 'Here is some geology for y\'all. What formation are we looking at?', style: 'multi-img', topic: 'picture', image: '/images/questions/alluvial_fan.jpg'},
