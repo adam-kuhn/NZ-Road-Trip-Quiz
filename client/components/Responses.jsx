@@ -61,17 +61,21 @@ class Answers extends React.Component {
   render () {
     return (
       <div>
-        {this.props.answers.map(answer => {
-          return (
-            <label key={answer.id}>{answer.response.includes('images') ? <img src={answer.response} /> : answer.response}
-              <input type='radio' onChange={this.handleClick} value={answer.id}
-                checked={this.state.selected === answer.id}
-                data-correct={answer.correct}
-                data-description={answer.description}
-                disabled={this.state.answer} />
-            </label>
-          )
-        })}
+        <ul>
+          {this.props.answers.map(answer => {
+            return (
+              <li key={answer.id}>
+                <label>{answer.response.includes('images') ? <img src={answer.response} /> : answer.response}
+                  <input type='radio' onChange={this.handleClick} value={answer.id}
+                    checked={this.state.selected === answer.id}
+                    data-correct={answer.correct}
+                    data-description={answer.description}
+                    disabled={this.state.answer} />
+                </label>
+              </li>
+            )
+          })}
+        </ul>
         {!this.state.next && <Description text={this.state.description} />}
         <button type='button' disabled={this.state.submit}
           onClick={this.submitAnswer}>
