@@ -1,9 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 
 import Responses from './Responses'
 
-import {getNextQuestion, finishedQuiz} from '../actions'
+import {getNextQuestion, finishedQuiz, reset} from '../actions'
 
 class Questions extends React.Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class Questions extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
+    this.goHome = this.goHome.bind(this)
   }
   handleClick (evt) {
     const correct = evt.target.correct
@@ -28,6 +30,10 @@ class Questions extends React.Component {
     }
     this.props.dispatch(getNextQuestion(this.props.questionNum))
   }
+  goHome () {
+    this.props.history.push('/')
+    this.props.dispatch(reset())
+  }
   render () {
     return (
       <div>
@@ -38,6 +44,7 @@ class Questions extends React.Component {
           </div>
           : <h3>{this.props.questions[this.props.questionNum].question}</h3> }
         <Responses />
+        <button type ='button' onClick={this.goHome}>Home</button>
       </div>
     )
   }
@@ -50,4 +57,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(Questions)
+export default connect(mapStateToProps)(withRouter(Questions))

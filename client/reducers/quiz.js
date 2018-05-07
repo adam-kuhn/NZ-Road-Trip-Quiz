@@ -1,4 +1,4 @@
-import {GOT_QUIZ, NEXT_QUESTION, FINISHED} from '../actions'
+import {GOT_QUIZ, NEXT_QUESTION, FINISHED, RESET} from '../actions'
 
 const initialState = {
   questionNum: 0,
@@ -18,6 +18,9 @@ function quiz (state = initialState, action) {
         ...state,
         questionNum: newNumber
       }
+    }
+    case (RESET): {
+      return initialState
     }
     case (FINISHED): {
       return initialState

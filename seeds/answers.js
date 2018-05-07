@@ -76,7 +76,7 @@ exports.seed = function (knex, Promise) {
         {id: 70, questions_Id: 18, response: 'Ben Lommond', correct: 'no', description: 'Nah. Great trek, on Queenstown doorstep, just not as good as the others.'},
         {id: 71, questions_Id: 19, response: 'Leaves', correct: 'no', description: 'I wish there were leaves around, but sadly none were to be found.'},
         {id: 72, questions_Id: 19, response: 'Pinecone', correct: 'no', description: 'Ouch! No! I do not think I would ever resort to that.'},
-        {id: 73, questions_Id: 19, response: 'Business car', correct: 'yes', description: 'Yeah...can not recommend it, but there was nothing else!'},
+        {id: 73, questions_Id: 19, response: 'Business card', correct: 'yes', description: 'Yeah...can not recommend it, but there was nothing else!'},
         {id: 74, questions_Id: 19, response: 'A sock', correct: 'no', description: 'Not me. But I no a guy who sacrifced a sock for this purpose.'},
         {id: 75, questions_Id: 20, response: 'Not letting anyone know where I was going', correct: 'no', description: 'Nope. When I could not reach my parents with data, or text a friend. I would write a note and leave it on dashboard of my car "I am on TRAIL alone, if not back by TIME send help" So I think that did the job.'},
         {id: 76, questions_Id: 20, response: 'Not bringing a map', correct: 'no', description: 'No. All the trails I was on were well marked, so no need for a map.'},
