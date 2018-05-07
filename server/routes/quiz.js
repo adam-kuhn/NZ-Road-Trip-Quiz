@@ -28,7 +28,6 @@ router.post('/', (req, res) => {
   if (req.body.quizTopic === 'speed') {
     db.getSpeedQuiz()
       .then(quiz => {
-        console.log(quiz)
         const randomized = randomQuestions(quiz)
         res.status(200).send(randomized)
       })
