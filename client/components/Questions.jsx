@@ -10,11 +10,20 @@ class Questions extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      response: ''
+      response: '',
+      seconds: 0
     }
     this.handleClick = this.handleClick.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
     this.goHome = this.goHome.bind(this)
+    this.timer = this.timer.bind(this)
+  }
+  timer () {
+    console.log(this.state.seconds)
+    const time = this.state.seconds
+    this.setState({
+      seconds: time + 1
+    })
   }
   componentDidMount () {
     if (this.props.topic === 'speed') {
@@ -24,6 +33,11 @@ class Questions extends React.Component {
   componentDidUpdate () {
     if (this.props.topic === 'speed') {
       console.log('topic', this.props.topic)
+      setInterval(1000, this.timer())
+      if (this.state.seconds === 10) {
+        console.log(this.state.seconds, 'end')
+        return 'done'
+      }
     }
   }
   handleClick (evt) {
@@ -59,7 +73,12 @@ class Questions extends React.Component {
     )
   }
 }
-
+// function timer (state) {
+//   console.log(this.state.count)
+//   this.setState({
+//     count: this.state.count++
+//   })
+// }
 function mapStateToProps (state) {
   return {
     questions: state.quiz.questions,
