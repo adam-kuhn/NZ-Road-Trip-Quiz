@@ -11,7 +11,8 @@ class Questions extends React.Component {
     super(props)
     this.state = {
       response: '',
-      seconds: 0
+      seconds: 0,
+      counting: true
     }
     this.handleClick = this.handleClick.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
@@ -19,27 +20,36 @@ class Questions extends React.Component {
     this.timer = this.timer.bind(this)
   }
   timer () {
-    console.log(this.state.seconds)
-    const time = this.state.seconds
-    this.setState({
-      seconds: time + 1
-    })
+    if (this.state.seconds === 10) {
+      console.log('done')
+      return 'nothing'
+    } else {
+      console.log(this.state.seconds)
+      const time = this.state.seconds
+      this.setState({
+        seconds: time + 1
+        // counting: false
+      })
+    }
   }
+
   componentDidMount () {
-    if (this.props.topic === 'speed') {
-      console.log('topic mount', this.props.topic)
-    }
-  }
-  componentDidUpdate () {
-    if (this.props.topic === 'speed') {
-      console.log('topic', this.props.topic)
+    if (this.props.topic === 'speed' && this.state.counting === true) {
       setInterval(1000, this.timer())
-      if (this.state.seconds === 10) {
-        console.log(this.state.seconds, 'end')
-        return 'done'
-      }
     }
   }
+  // componentDidUpdate () {
+  //   if (this.props.topic === 'speed' && this.state.counting === true) {
+  //     setInterval(this.timer(), 1000)
+  //   }
+  // console.log('topic', this.props.topic)
+  // setInterval(1000, this.timer())
+  // if (this.state.seconds === 10) {
+  //   console.log(this.state.seconds, 'end')
+  //   return 'done'
+  // }
+  // }
+  // }
   handleClick (evt) {
     const correct = evt.target.correct
     this.setState({
