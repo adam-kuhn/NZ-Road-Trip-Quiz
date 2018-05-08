@@ -16,6 +16,16 @@ class Questions extends React.Component {
     this.nextQuestion = this.nextQuestion.bind(this)
     this.goHome = this.goHome.bind(this)
   }
+  componentDidMount () {
+    if (this.props.topic === 'speed') {
+      console.log('topic mount', this.props.topic)
+    }
+  }
+  componentDidUpdate () {
+    if (this.props.topic === 'speed') {
+      console.log('topic', this.props.topic)
+    }
+  }
   handleClick (evt) {
     const correct = evt.target.correct
     this.setState({
