@@ -12,7 +12,7 @@ class Questions extends React.Component {
     this.state = {
       response: '',
       seconds: 0,
-      counting: true
+      intervalId: ''
     }
     this.handleClick = this.handleClick.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
@@ -22,7 +22,7 @@ class Questions extends React.Component {
   timer () {
     if (this.state.seconds === 10) {
       console.log('done')
-      return 'nothing'
+      clearInterval(this.state.intervalId)
     } else {
       console.log(this.state.seconds)
       const time = this.state.seconds
@@ -32,12 +32,15 @@ class Questions extends React.Component {
       })
     }
   }
-
   componentDidMount () {
-    if (this.props.topic === 'speed' && this.state.counting === true) {
-      setInterval(1000, this.timer())
+    if (this.props.topic === 'speed') {
+      const intervalId = setInterval(this.timer, 1000)
+      this.setState({
+        intervalId
+      })
     }
   }
+
   // componentDidUpdate () {
   //   if (this.props.topic === 'speed' && this.state.counting === true) {
   //     setInterval(this.timer(), 1000)
