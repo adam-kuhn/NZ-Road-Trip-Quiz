@@ -4,7 +4,7 @@ import {withRouter} from 'react-router'
 
 import Responses from './Responses'
 
-import {getNextQuestion, finishedQuiz, reset} from '../actions'
+import {reset} from '../actions'
 
 class Questions extends React.Component {
   constructor (props) {
@@ -13,7 +13,6 @@ class Questions extends React.Component {
       response: ''
     }
     this.handleClick = this.handleClick.bind(this)
-    this.nextQuestion = this.nextQuestion.bind(this)
     this.goHome = this.goHome.bind(this)
   }
   handleClick (evt) {
@@ -23,12 +22,6 @@ class Questions extends React.Component {
       correct,
       disabled: false
     })
-  }
-  nextQuestion () {
-    if (this.props.questionNum === this.props.length + 1) {
-      this.props.dispatch(finishedQuiz())
-    }
-    this.props.dispatch(getNextQuestion(this.props.questionNum))
   }
   goHome () {
     this.props.history.push('/')
@@ -43,13 +36,12 @@ class Questions extends React.Component {
             <p>{this.props.questions[this.props.questionNum].question}</p>
           </div>
           : <h3>{this.props.questions[this.props.questionNum].question}</h3> }
-        <Responses />
+        <Responses topic={this.props.topic} />
         <button type ='button' onClick={this.goHome}>Home</button>
       </div>
     )
   }
 }
-
 function mapStateToProps (state) {
   return {
     questions: state.quiz.questions,

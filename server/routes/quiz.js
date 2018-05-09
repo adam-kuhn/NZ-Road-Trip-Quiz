@@ -15,7 +15,7 @@ function randomQuestions (questions, uniqueIds, uniqueQuestions) {
       return id === randomId
     })
     if (checkUnique.length === 1) {
-      randomQuiz.push(questions[randomId - 1])
+      randomQuiz.push(questions[randomId])
       if (randomQuiz.length === 10) {
         return randomQuiz
       }

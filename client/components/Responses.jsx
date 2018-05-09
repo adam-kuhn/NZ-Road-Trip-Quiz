@@ -15,12 +15,48 @@ class Answers extends React.Component {
       submit: true,
       next: true,
       answer: false,
-      score: 0
+      score: 0,
+      seconds: 0,
+      intervalId: '',
+      counting: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
+    this.timer = this.timer.bind(this)
+    this.startCounting = this.startCounting.bind(this)
   }
+
+  componentDidMount () {
+    if (this.props.topic === 'speed') {
+      this.startCounting()
+    }
+  }
+  startCounting () {
+    const intervalId = setInterval(this.timer, 500)
+    this.setState({
+      intervalId,
+      counting: true
+    })
+  }
+  timer () {
+    if (this.state.seconds === 10) {
+      console.log('done')
+      clearInterval(this.state.intervalId)
+      this.setState({
+        seconds: 0
+      })
+      this.nextQuestion()
+    } else {
+      console.log(this.state.seconds)
+
+      const time = this.state.seconds
+      this.setState({
+        seconds: time + 1
+      })
+    }
+  }
+
   handleClick (evt) {
     const correct = evt.target.getAttribute('data-correct')
     const description = evt.target.getAttribute('data-description')
@@ -48,14 +84,22 @@ class Answers extends React.Component {
     if (this.props.questionNum + 1 === this.props.length) {
       this.props.dispatch(finishedQuiz(this.props.match.params.topic,
         this.state.score))
-      return
+      clearInterval(this.state.intervalId)
+    } else {
+      if (this.props.topic === 'speed') {
+        clearInterval(this.state.intervalId)
+        this.setState({
+          seconds: 0
+        })
+      }
+      this.props.dispatch(getNextQuestion(this.props.questionNum))
+      this.setState({
+        submit: true,
+        next: true,
+        answer: false
+      })
+      this.startCounting()
     }
-    this.props.dispatch(getNextQuestion(this.props.questionNum))
-    this.setState({
-      submit: true,
-      next: true,
-      answer: false
-    })
   }
 
   render () {
@@ -76,6 +120,7 @@ class Answers extends React.Component {
             )
           })}
         </ul>
+        {this.state.counting && <p>{this.state.seconds}</p>}
         {!this.state.next && <Description text={this.state.description} />}
         <button type='button' disabled={this.state.submit}
           onClick={this.submitAnswer}>
