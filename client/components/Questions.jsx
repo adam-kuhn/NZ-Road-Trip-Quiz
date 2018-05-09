@@ -4,55 +4,17 @@ import {withRouter} from 'react-router'
 
 import Responses from './Responses'
 
-import {getNextQuestion, finishedQuiz, reset} from '../actions'
+import {reset} from '../actions'
 
 class Questions extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      response: '',
-      seconds: 0,
-      intervalId: ''
+      response: ''
     }
     this.handleClick = this.handleClick.bind(this)
-    this.nextQuestion = this.nextQuestion.bind(this)
     this.goHome = this.goHome.bind(this)
-    this.timer = this.timer.bind(this)
   }
-  timer () {
-    if (this.state.seconds === 10) {
-      console.log('done')
-      clearInterval(this.state.intervalId)
-    } else {
-      console.log(this.state.seconds)
-      const time = this.state.seconds
-      this.setState({
-        seconds: time + 1
-        // counting: false
-      })
-    }
-  }
-  componentDidMount () {
-    if (this.props.topic === 'speed') {
-      const intervalId = setInterval(this.timer, 1000)
-      this.setState({
-        intervalId
-      })
-    }
-  }
-
-  // componentDidUpdate () {
-  //   if (this.props.topic === 'speed' && this.state.counting === true) {
-  //     setInterval(this.timer(), 1000)
-  //   }
-  // console.log('topic', this.props.topic)
-  // setInterval(1000, this.timer())
-  // if (this.state.seconds === 10) {
-  //   console.log(this.state.seconds, 'end')
-  //   return 'done'
-  // }
-  // }
-  // }
   handleClick (evt) {
     const correct = evt.target.correct
     this.setState({
@@ -60,12 +22,6 @@ class Questions extends React.Component {
       correct,
       disabled: false
     })
-  }
-  nextQuestion () {
-    if (this.props.questionNum === this.props.length + 1) {
-      this.props.dispatch(finishedQuiz())
-    }
-    this.props.dispatch(getNextQuestion(this.props.questionNum))
   }
   goHome () {
     this.props.history.push('/')
@@ -80,18 +36,12 @@ class Questions extends React.Component {
             <p>{this.props.questions[this.props.questionNum].question}</p>
           </div>
           : <h3>{this.props.questions[this.props.questionNum].question}</h3> }
-        <Responses />
+        <Responses topic={this.props.topic} />
         <button type ='button' onClick={this.goHome}>Home</button>
       </div>
     )
   }
 }
-// function timer (state) {
-//   console.log(this.state.count)
-//   this.setState({
-//     count: this.state.count++
-//   })
-// }
 function mapStateToProps (state) {
   return {
     questions: state.quiz.questions,
