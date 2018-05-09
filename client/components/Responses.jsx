@@ -17,7 +17,8 @@ class Answers extends React.Component {
       answer: false,
       score: 0,
       seconds: 0,
-      intervalId: ''
+      intervalId: '',
+      counting: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
@@ -34,7 +35,8 @@ class Answers extends React.Component {
   startCounting () {
     const intervalId = setInterval(this.timer, 500)
     this.setState({
-      intervalId
+      intervalId,
+      counting: true
     })
   }
   timer () {
@@ -47,6 +49,7 @@ class Answers extends React.Component {
       this.nextQuestion()
     } else {
       console.log(this.state.seconds)
+
       const time = this.state.seconds
       this.setState({
         seconds: time + 1
@@ -117,6 +120,7 @@ class Answers extends React.Component {
             )
           })}
         </ul>
+        {this.state.counting && <p>{this.state.seconds}</p>}
         {!this.state.next && <Description text={this.state.description} />}
         <button type='button' disabled={this.state.submit}
           onClick={this.submitAnswer}>
