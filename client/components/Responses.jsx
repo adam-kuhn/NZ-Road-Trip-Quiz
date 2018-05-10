@@ -91,6 +91,7 @@ class Answers extends React.Component {
         this.setState({
           seconds: 0
         })
+        this.startCounting()
       }
       this.props.dispatch(getNextQuestion(this.props.questionNum))
       this.setState({
@@ -98,7 +99,6 @@ class Answers extends React.Component {
         next: true,
         answer: false
       })
-      this.startCounting()
     }
   }
 
