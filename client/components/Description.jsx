@@ -2,7 +2,11 @@ import React from 'react'
 
 function Description (props) {
   return (
-    <p>{props.text}</p>
+    <div>
+      {false && <p>test</p>}
+      <p>{props.text}</p>
+    </div>
+
   )
 }
 
