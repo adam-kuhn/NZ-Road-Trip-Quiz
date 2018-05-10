@@ -4,7 +4,7 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('answers').insert([
-        {id: 1, questions_Id: 1, response: '106', correct: 'no', description: '...nope.'},
+        {id: 1, questions_Id: 1, response: '106', correct: 'no', description: '...nope.', image: '/images/questions/east-coast.jpg'},
         {id: 2, questions_Id: 1, response: '125', correct: 'yes', description: 'woohoo!'},
         {id: 3, questions_Id: 1, response: '83', correct: 'no', description: 'nice try.'},
         {id: 4, questions_Id: 1, response: '117', correct: 'no', description: 'getting close, but nah.'},

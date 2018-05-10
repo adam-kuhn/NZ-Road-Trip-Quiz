@@ -3,7 +3,8 @@ import React from 'react'
 function Description (props) {
   return (
     <div>
-      {false && <p>test</p>}
+      {props.img !== null && <img src='/images/questions/east-coast.jpg' />}
+      {props.img === null && <p>no image</p>}
       <p>{props.text}</p>
     </div>
 
