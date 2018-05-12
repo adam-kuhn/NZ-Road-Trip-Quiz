@@ -2,4 +2,4 @@ I went on a quick roadtrip around NZ. I thought that writing a little quiz would
 
 I intend to have a number of quiz topics (music, sights, pictures etc.,) and a speed round, taking 10 randomly assigned questions and give the user a set amount of time to answer the questions.
 
-Currently all quizes are functional, except for the Speed quiz. It is still being built.
+
