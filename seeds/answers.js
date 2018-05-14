@@ -4,7 +4,7 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('answers').insert([
-        {id: 1, questions_Id: 1, response: '106', correct: 'no', description: '...nope.', image: '/images/questions/east-coast.jpg'},
+        {id: 1, questions_Id: 1, response: '106', correct: 'no', description: '...nope.'},
         {id: 2, questions_Id: 1, response: '125', correct: 'yes', description: 'woohoo!'},
         {id: 3, questions_Id: 1, response: '83', correct: 'no', description: 'nice try.'},
         {id: 4, questions_Id: 1, response: '117', correct: 'no', description: 'getting close, but nah.'},
@@ -51,7 +51,7 @@ exports.seed = function (knex, Promise) {
         {id: 45, questions_Id: 12, response: '676', correct: 'yes', description: 'Yup...I went a little nuts on the photo taking'},
         {id: 46, questions_Id: 12, response: '333', correct: 'no', description: 'three three three, no no no'},
         {id: 47, questions_Id: 13, response: '1031', correct: 'no', description: 'This is a larger number then the choices given for total number of pictures...sooooo nah'},
-        {id: 48, questions_Id: 13, response: '113', correct: 'yes', description: 'Yeah budday! I probably took more selifes in these two weeks then I have in my entire life'},
+        {id: 48, questions_Id: 13, response: '113', correct: 'yes', description: 'Yeah budday! I probably took more selifes in these two weeks then I have in my entire life', image: '/images/descriptions/selfie.jpg'},
         {id: 49, questions_Id: 13, response: '42', correct: 'no', description: 'It is the answer to life, but not to my selfies'},
         {id: 50, questions_Id: 13, response: '117', correct: 'no', description: 'Master Cheif, Halo, wicked game, but not correct.'},
         {id: 51, questions_Id: 14, response: '10.3 km', correct: 'no', description: 'I am not that soft. Cmon!'},
