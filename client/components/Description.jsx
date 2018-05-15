@@ -2,7 +2,11 @@ import React from 'react'
 
 function Description (props) {
   return (
-    <p>{props.text}</p>
+    <div>
+      {props.img !== null && <img src={props.img} />}
+      <p>{props.text}</p>
+    </div>
+
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
+import Sound from 'react-sound'
 
 import Description from './Description'
 import {getNextQuestion, finishedQuiz} from '../actions'
@@ -12,10 +13,12 @@ class Answers extends React.Component {
       selected: '',
       correct: '',
       description: '',
+      descriptionImg: '',
       submit: true,
       next: true,
       answer: false,
       score: 0,
+      audio: '',
       seconds: 0,
       intervalId: '',
       counting: false
@@ -41,15 +44,12 @@ class Answers extends React.Component {
   }
   timer () {
     if (this.state.seconds === 10) {
-      console.log('done')
       clearInterval(this.state.intervalId)
       this.setState({
         seconds: 0
       })
       this.nextQuestion()
     } else {
-      console.log(this.state.seconds)
-
       const time = this.state.seconds
       this.setState({
         seconds: time + 1
@@ -60,10 +60,13 @@ class Answers extends React.Component {
   handleClick (evt) {
     const correct = evt.target.getAttribute('data-correct')
     const description = evt.target.getAttribute('data-description')
+    const descriptionImg = evt.target.getAttribute('data-description-img')
+    console.log(descriptionImg)
     this.setState({
       selected: Number(evt.target.value),
       correct,
       description,
+      descriptionImg,
       submit: false
     })
   }
@@ -71,7 +74,13 @@ class Answers extends React.Component {
   submitAnswer () {
     if (this.state.correct === 'yes') {
       this.setState({
-        score: this.state.score + 1
+        score: this.state.score + 1,
+        audio: '/sounds/correct.mp3'
+
+      })
+    } else {
+      this.setState({
+        audio: '/sounds/wrong.mp3'
       })
     }
     this.setState({
@@ -91,6 +100,7 @@ class Answers extends React.Component {
         this.setState({
           seconds: 0
         })
+        this.startCounting()
       }
       this.props.dispatch(getNextQuestion(this.props.questionNum))
       this.setState({
@@ -98,7 +108,6 @@ class Answers extends React.Component {
         next: true,
         answer: false
       })
-      this.startCounting()
     }
   }
 
@@ -114,6 +123,7 @@ class Answers extends React.Component {
                     checked={this.state.selected === answer.id}
                     data-correct={answer.correct}
                     data-description={answer.description}
+                    data-description-img={answer.descriptionImg}
                     disabled={this.state.answer} />
                 </label>
               </li>
@@ -121,12 +131,14 @@ class Answers extends React.Component {
           })}
         </ul>
         {this.state.counting && <p>{this.state.seconds}</p>}
-        {!this.state.next && <Description text={this.state.description} />}
+        {!this.state.next && <Description text={this.state.description}
+          img={this.state.descriptionImg} />}
         <button type='button' disabled={this.state.submit}
           onClick={this.submitAnswer}>
         Submit Answer</button>
         <button type='button' disabled={this.state.next}
           onClick={this.nextQuestion}>Next</button>
+        {!this.state.next && <Sound url={this.state.audio} playStatus={Sound.status.PLAYING} />}
       </div>
     )
   }

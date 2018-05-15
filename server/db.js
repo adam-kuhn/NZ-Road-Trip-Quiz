@@ -20,7 +20,7 @@ function getQuiz (topic, testDb) {
         .join('answers', 'questions.id', 'answers.questions_id')
         .where('questions.topic', topic)
         .select('answers.id', 'answers.response', 'answers.correct',
-          'answers.description', 'answers.questions_id')
+          'answers.description', 'answers.questions_id', 'answers.image')
         .then(result => {
           const answers = result.map(response => {
             return {
@@ -28,7 +28,8 @@ function getQuiz (topic, testDb) {
               questionId: response.questions_id,
               response: response.response,
               correct: response.correct,
-              description: response.description
+              description: response.description,
+              descriptionImg: response.image
             }
           })
           for (let i in questions) {
@@ -64,7 +65,7 @@ function getSpeedQuiz (testDb) {
       return db('questions')
         .join('answers', 'questions.id', 'answers.questions_id')
         .select('answers.id', 'answers.response', 'answers.correct',
-          'answers.description', 'answers.questions_id')
+          'answers.description', 'answers.questions_id', 'answers.image')
         .then(result => {
           const answers = result.map(response => {
             return {
@@ -72,7 +73,9 @@ function getSpeedQuiz (testDb) {
               questionId: response.questions_id,
               response: response.response,
               correct: response.correct,
-              description: response.description
+              description: response.description,
+              descriptionImg: response.image
+
             }
           })
           for (let i in questions) {
