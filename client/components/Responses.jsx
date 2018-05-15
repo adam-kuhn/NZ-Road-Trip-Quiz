@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
+import Sound from 'react-sound'
 
 import Description from './Description'
 import {getNextQuestion, finishedQuiz} from '../actions'
@@ -17,6 +18,7 @@ class Answers extends React.Component {
       next: true,
       answer: false,
       score: 0,
+      audio: '',
       seconds: 0,
       intervalId: '',
       counting: false
@@ -72,7 +74,13 @@ class Answers extends React.Component {
   submitAnswer () {
     if (this.state.correct === 'yes') {
       this.setState({
-        score: this.state.score + 1
+        score: this.state.score + 1,
+        audio: '/sounds/correct.mp3'
+
+      })
+    } else {
+      this.setState({
+        audio: '/sounds/wrong.mp3'
       })
     }
     this.setState({
@@ -130,6 +138,7 @@ class Answers extends React.Component {
         Submit Answer</button>
         <button type='button' disabled={this.state.next}
           onClick={this.nextQuestion}>Next</button>
+        {!this.state.next && <Sound url={this.state.audio} playStatus={Sound.status.PLAYING} />}
       </div>
     )
   }
