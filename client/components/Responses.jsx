@@ -131,7 +131,8 @@ class Answers extends React.Component {
         </ul>
         {this.state.counting && <p>{this.state.seconds}</p>}
         {!this.state.next && <Description text={this.state.description}
-          img={this.state.descriptionImg} />}
+          img={this.state.descriptionImg}
+          correct={this.state.correct}/>}
         <button type='button' disabled={this.state.submit}
           onClick={this.submitAnswer}>
         Submit Answer</button>

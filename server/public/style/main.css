@@ -2,3 +2,11 @@ img {
   width: 400px;
   height: 300px;
 }
+
+.yes {
+  background-color: greenyellow;
+}
+
+.no {
+  background-color: #ff000075;
+}
