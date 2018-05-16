@@ -4,7 +4,7 @@ function Description (props) {
   return (
     <div>
       {props.img !== null && <img src={props.img} />}
-      <p>{props.text}</p>
+      <p className={props.correct}>{props.text}</p>
     </div>
 
   )
