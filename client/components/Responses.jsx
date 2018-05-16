@@ -61,7 +61,6 @@ class Answers extends React.Component {
     const correct = evt.target.getAttribute('data-correct')
     const description = evt.target.getAttribute('data-description')
     const descriptionImg = evt.target.getAttribute('data-description-img')
-    console.log(descriptionImg)
     this.setState({
       selected: Number(evt.target.value),
       correct,
