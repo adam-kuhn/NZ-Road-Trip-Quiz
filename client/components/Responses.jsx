@@ -4,6 +4,7 @@ import {withRouter} from 'react-router'
 import Sound from 'react-sound'
 
 import Description from './Description'
+import QuestionStepper from './QuestionStepper'
 import {getNextQuestion, finishedQuiz} from '../actions'
 
 class Answers extends React.Component {
@@ -105,7 +106,8 @@ class Answers extends React.Component {
       this.setState({
         submit: true,
         next: true,
-        answer: false
+        answer: false,
+        finsished: true
       })
     }
   }
@@ -139,6 +141,7 @@ class Answers extends React.Component {
         <button type='button' disabled={this.state.next}
           onClick={this.nextQuestion}>Next</button>
         {!this.state.next && <Sound url={this.state.audio} playStatus={Sound.status.PLAYING} />}
+        <QuestionStepper />
       </div>
     )
   }
