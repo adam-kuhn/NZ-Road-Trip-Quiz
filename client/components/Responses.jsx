@@ -2,10 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import Sound from 'react-sound'
-import {Step, Stepper, StepLabel} from 'material-ui/Stepper'
-import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward'
 
 import Description from './Description'
+import QuestionStepper from './QuestionStepper'
 import {getNextQuestion, finishedQuiz} from '../actions'
 
 class Answers extends React.Component {
@@ -23,8 +22,7 @@ class Answers extends React.Component {
       audio: '',
       seconds: 0,
       intervalId: '',
-      counting: false,
-      stepIndex: 0
+      counting: false
     }
     this.handleClick = this.handleClick.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
@@ -105,12 +103,10 @@ class Answers extends React.Component {
         this.startCounting()
       }
       this.props.dispatch(getNextQuestion(this.props.questionNum))
-      const {stepIndex} = this.state
       this.setState({
         submit: true,
         next: true,
         answer: false,
-        stepIndex: stepIndex + 1,
         finsished: true
       })
     }
@@ -145,40 +141,7 @@ class Answers extends React.Component {
         <button type='button' disabled={this.state.next}
           onClick={this.nextQuestion}>Next</button>
         {!this.state.next && <Sound url={this.state.audio} playStatus={Sound.status.PLAYING} />}
-        <div style={{width: '100%', maxWidth: 700}}>
-          <Stepper activeStep={this.state.stepIndex} connector={<ArrowForwardIcon />}>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-          </Stepper>
-        </div>
+        <QuestionStepper />
       </div>
     )
   }
