@@ -139,7 +139,7 @@ exports.seed = function (knex, Promise) {
         {id: 133, questions_Id: 35, response: 'Mount Sunday', correct: 'no', description: 'Nah, this is not Middle Earth.'},
         {id: 134, questions_Id: 35, response: 'Tongariro Alpine Crossing', correct: 'no', description: 'Nope. It was so damn foggy on the crossing that I did not see anything.'},
         {id: 135, questions_Id: 35, response: 'Ben Lomond', correct: 'no', description: 'Nope.'},
-        {id: 136, questions_Id: 35, response: 'Mount Alpha', correct: 'no', description: 'Yup. Geology Rocks! haha punny'},
+        {id: 136, questions_Id: 35, response: 'Mount Alpha', correct: 'yes', description: 'Yup. Geology Rocks! haha punny'},
         {id: 137, questions_Id: 36, response: 'Mt Doom', correct: 'no', description: 'Nah. I feel so sorry for you if you think this Mont Doom.'},
         {id: 138, questions_Id: 36, response: 'The Shire', correct: 'no', description: 'Nope. It is green like the shire but that is it'},
         {id: 139, questions_Id: 36, response: 'Edoras', correct: 'yes', description: 'Nailed it! This place is dope, and I was so happy to visit it.'},
