@@ -155,7 +155,11 @@ exports.seed = function (knex, Promise) {
         {id: 149, questions_Id: 39, response: 'Mars.', correct: 'no', description: 'No. But nice try. I kind of thought I was on Mars'},
         {id: 150, questions_Id: 39, response: 'Mount Fox', correct: 'no', description: 'Nope. It was foggy on Mount Fox too, but that is about it.'},
         {id: 151, questions_Id: 39, response: 'Tongariro Alpine Crossing', correct: 'yes', description: 'Yup. Sucked that I could not see a thing. But also very cool atmosphere. Very eerie and off worldly.'},
-        {id: 152, questions_Id: 39, response: 'Ben Lomond', correct: 'no', description: 'Nah. It was nothing but clear skies up on Ben Lomond'}
+        {id: 152, questions_Id: 39, response: 'Ben Lomond', correct: 'no', description: 'Nah. It was nothing but clear skies up on Ben Lomond'},
+        {id: 153, questions_Id: 40, response: '1', correct: 'no', description: 'placed holder'},
+        {id: 154, questions_Id: 40, response: '2', correct: 'no', description: 'placed holder'},
+        {id: 155, questions_Id: 40, response: '3', correct: 'yes', description: 'placed holder'},
+        {id: 156, questions_Id: 40, response: '4', correct: 'no', description: 'placed holder'}
       ])
     })
 }
