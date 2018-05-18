@@ -42,7 +42,8 @@ exports.seed = function (knex, Promise) {
         {id: 36, question: 'Now we are in Middle Earth. Where though?', style: 'multi-img', topic: 'picture', image: '/images/questions/mt-sunday.jpg'},
         {id: 37, question: 'Here is some geology for y\'all. What formation are we looking at?', style: 'multi-img', topic: 'picture', image: '/images/questions/alluvial_fan.jpg'},
         {id: 38, question: 'Roadside views. Where abouts from?', style: 'multi-img', topic: 'picture', image: '/images/questions/road-to-milford.jpg'},
-        {id: 39, question: 'Where was this taken?', style: 'multi-img', topic: 'picture', image: '/images/questions/tongariro-crossing.jpg'}
+        {id: 39, question: 'Where was this taken?', style: 'multi-img', topic: 'picture', image: '/images/questions/tongariro-crossing.jpg'},
+        {id: 40, question: 'Place Holder till I think of a btter one', style: 'multi', topic: 'trekking'}
       ])
     })
 }
