@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import Sound from 'react-sound'
 import {Step, Stepper, StepLabel} from 'material-ui/Stepper'
+import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward'
 
 import Description from './Description'
 import {getNextQuestion, finishedQuiz} from '../actions'
@@ -23,8 +24,7 @@ class Answers extends React.Component {
       seconds: 0,
       intervalId: '',
       counting: false,
-      stepIndex: 0,
-      finished: false
+      stepIndex: 0
     }
     this.handleClick = this.handleClick.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
@@ -96,9 +96,6 @@ class Answers extends React.Component {
       this.props.dispatch(finishedQuiz(this.props.match.params.topic,
         this.state.score))
       clearInterval(this.state.intervalId)
-      this.setState({
-        // finished: true
-      })
     } else {
       if (this.props.topic === 'speed') {
         clearInterval(this.state.intervalId)
@@ -113,7 +110,8 @@ class Answers extends React.Component {
         submit: true,
         next: true,
         answer: false,
-        stepIndex: stepIndex + 1
+        stepIndex: stepIndex + 1,
+        finsished: true
       })
     }
   }
@@ -148,7 +146,7 @@ class Answers extends React.Component {
           onClick={this.nextQuestion}>Next</button>
         {!this.state.next && <Sound url={this.state.audio} playStatus={Sound.status.PLAYING} />}
         <div style={{width: '100%', maxWidth: 700}}>
-          <Stepper activeStep={this.state.stepIndex}>
+          <Stepper activeStep={this.state.stepIndex} connector={<ArrowForwardIcon />}>
             <Step>
               <StepLabel></StepLabel>
             </Step>
