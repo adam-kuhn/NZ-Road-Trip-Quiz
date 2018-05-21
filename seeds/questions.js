@@ -43,7 +43,7 @@ exports.seed = function (knex, Promise) {
         {id: 37, question: 'Here is some geology for y\'all. What formation are we looking at?', style: 'multi-img', topic: 'picture', image: '/images/questions/alluvial_fan.jpg'},
         {id: 38, question: 'Roadside views. Where abouts from?', style: 'multi-img', topic: 'picture', image: '/images/questions/road-to-milford.jpg'},
         {id: 39, question: 'Where was this taken?', style: 'multi-img', topic: 'picture', image: '/images/questions/tongariro-crossing.jpg'},
-        {id: 40, question: 'Place Holder till I think of a btter one', style: 'multi', topic: 'trekking'}
+        {id: 40, question: 'How many treks did I do with someone else', style: 'multi', topic: 'trekking'}
       ])
     })
 }
