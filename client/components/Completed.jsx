@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 
+import HomeIcon from './HomeIcon'
 import {reset} from '../actions'
 
 class Completed extends React.Component {
@@ -19,8 +20,8 @@ class Completed extends React.Component {
     return (
       <div>
         <p>quiz completed</p>
-        <button type='button' onClick={this.handleClick}>
-      Back To Home</button>
+        <button className='home-button' type='button' onClick={this.handleClick}>
+          <HomeIcon /></button>
       </div>
     )
   }
