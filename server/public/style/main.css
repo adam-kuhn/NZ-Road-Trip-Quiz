@@ -10,3 +10,7 @@ img {
 .no {
   background-color: #ff000075;
 }
+
+button {
+  border: none;
+}
