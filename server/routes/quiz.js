@@ -3,9 +3,9 @@ const router = express.Router()
 
 const db = require('../db')
 
-function randomQuestions (questions, uniqueIds, uniqueQuestions) {
-  const ids = [] || uniqueIds
-  const randomQuiz = [] || uniqueQuestions
+function randomQuestions (questions) {
+  const ids = []
+  const randomQuiz = []
   // tried to just you recursion, but the call stack gets too high
   // therefore have to leave the loop in
   for (let i in questions) {
