@@ -21,7 +21,6 @@ function randomQuestions (questions, uniqueIds, uniqueQuestions) {
       }
     }
   }
-  randomQuestions(questions, ids, randomQuiz)
 }
 
 router.post('/', (req, res) => {
@@ -34,6 +33,8 @@ router.post('/', (req, res) => {
   } else {
     db.getQuiz(req.body.quizTopic)
       .then(quiz => {
+        console.log(quiz)
+        // const randomAnswers = randomAnswers(quiz)
         res.status(200).send(quiz)
       })
   }
