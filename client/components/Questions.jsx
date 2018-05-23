@@ -38,7 +38,7 @@ class Questions extends React.Component {
           </div>
           : <h3>{this.props.questions[this.props.questionNum].question}</h3> }
         <Responses topic={this.props.topic} />
-        <button type ='button' onClick={this.goHome}><HomeIcon /></button>       
+        <button className ='home-button' type ='button' onClick={this.goHome}><HomeIcon /></button>       
       </div>
     )
   }
