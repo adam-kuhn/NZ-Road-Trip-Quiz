@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Router>
       <MuiThemeProvider muiTheme={muiTheme} >
-        <div>
+        <div className='main-container'>
           <Route path='/' component={Home} />
           <Route path='/quiz/:topic' component={Quiz} />
         </div>
