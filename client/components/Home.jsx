@@ -5,7 +5,7 @@ import QuizSideBar from './QuizSideBar'
 
 function Home (props) {
   return (
-    <div>
+    <div className='main-container'>
       <h1>NZ Road Trip Quiz!</h1>
       <p>Select a quiz and have some fun finding out about my New Zealand Road Trip</p>
       {props.showSideBar && <QuizSideBar />}
