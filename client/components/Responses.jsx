@@ -37,7 +37,7 @@ class Answers extends React.Component {
     }
   }
   startCounting () {
-    const intervalId = setInterval(this.timer, 500)
+    const intervalId = setInterval(this.timer, 1000)
     this.setState({
       intervalId,
       counting: true
