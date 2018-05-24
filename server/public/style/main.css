@@ -17,6 +17,8 @@ button {
 .resp-container {
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
+  margin-left: 13rem;
 }
 .resp-item {
   padding: 1rem;

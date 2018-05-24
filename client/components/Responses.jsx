@@ -114,7 +114,7 @@ class Answers extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='main-container'>
         <ul className='resp-container'>
           {this.props.answers.map(answer => {
             return (
