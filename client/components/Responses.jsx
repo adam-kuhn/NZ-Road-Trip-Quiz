@@ -115,22 +115,32 @@ class Answers extends React.Component {
   render () {
     return (
       <div className='main-container'>
-        <ul className='resp-container'>
+        <div className='resp-container'>
           {this.props.answers.map(answer => {
             return (
-              <li className='resp-item' key={answer.id}>
-                <label>{answer.response.includes('images') ? <img src={answer.response} /> : answer.response}
-                  <input type='radio' onChange={this.handleClick} value={answer.id}
+              <div key={answer.id}>
+                {answer.response.includes('images')
+                  ? <label> <img src={answer.response} />
+                    <input type='radio' onChange={this.handleClick} value={answer.id}
+                      checked={this.state.selected === answer.id}
+                      data-correct={answer.correct}
+                      data-description={answer.description}
+                      data-description-img={answer.descriptionImg}
+                      disabled={this.state.answer} />
+                  </label>
+                  : <button type='button' className='resp-item'
+                    onClick={this.handleClick} value={answer.id}
                     checked={this.state.selected === answer.id}
                     data-correct={answer.correct}
                     data-description={answer.description}
                     data-description-img={answer.descriptionImg}
-                    disabled={this.state.answer} />
-                </label>
-              </li>
+                    disabled={this.state.answer} >
+                    {answer.response}
+                  </button>}
+              </div>
             )
           })}
-        </ul>
+        </div>
         {this.state.counting && <p>{this.state.seconds}</p>}
         {!this.state.next && <Description text={this.state.description}
           img={this.state.descriptionImg}

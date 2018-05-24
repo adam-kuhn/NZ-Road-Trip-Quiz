@@ -26,6 +26,12 @@ button {
   width: 15rem;
   height: 2rem;
 }
+
+.resp-item :hover {
+  background-color: blue;
+  width: 100%;
+  
+}
 .yes {
   background-color: greenyellow;
 }
