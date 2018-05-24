@@ -115,10 +115,10 @@ class Answers extends React.Component {
   render () {
     return (
       <div>
-        <ul>
+        <ul className='resp-container'>
           {this.props.answers.map(answer => {
             return (
-              <li key={answer.id}>
+              <li className='resp-item' key={answer.id}>
                 <label>{answer.response.includes('images') ? <img src={answer.response} /> : answer.response}
                   <input type='radio' onChange={this.handleClick} value={answer.id}
                     checked={this.state.selected === answer.id}

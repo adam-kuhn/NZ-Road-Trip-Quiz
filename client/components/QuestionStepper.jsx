@@ -7,7 +7,7 @@ class QuestionStepper extends React.Component {
   render () {
     return (
       // <div style={{width: '100%', maxWidth: 700}}>
-      <div className='yes'>
+      <div className='stepper-container'>
         <Stepper activeStep={this.props.questionNum} connector={<ArrowForwardIcon />}>
           {this.props.questions.map((question) => {
             return (
