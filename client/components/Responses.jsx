@@ -24,7 +24,7 @@ class Answers extends React.Component {
       intervalId: '',
       counting: false
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.submitAnswer = this.submitAnswer.bind(this)
     this.nextQuestion = this.nextQuestion.bind(this)
     this.timer = this.timer.bind(this)
@@ -58,7 +58,7 @@ class Answers extends React.Component {
     }
   }
 
-  handleClick (evt) {
+  handleChange (evt) {
     const correct = evt.target.getAttribute('data-correct')
     const description = evt.target.getAttribute('data-description')
     const descriptionImg = evt.target.getAttribute('data-description-img')
@@ -120,7 +120,7 @@ class Answers extends React.Component {
             return (
               <li key={answer.id}>
                 <label>{answer.response.includes('images') ? <img src={answer.response} /> : answer.response}
-                  <input type='radio' onChange={this.handleClick} value={answer.id}
+                  <input type='radio' onChange={this.handleChange} value={answer.id}
                     checked={this.state.selected === answer.id}
                     data-correct={answer.correct}
                     data-description={answer.description}
