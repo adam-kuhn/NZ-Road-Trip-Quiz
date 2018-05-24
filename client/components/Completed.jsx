@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 
+import HomeIcon from './HomeIcon'
 import {reset} from '../actions'
 
 class Completed extends React.Component {
@@ -19,11 +20,21 @@ class Completed extends React.Component {
     return (
       <div>
         <p>quiz completed</p>
-        <button type='button' onClick={this.handleClick}>
-      Back To Home</button>
+        <p>You scored {this.props[this.props.topic]}/10</p>
+        <button className='home-button' type='button' onClick={this.handleClick}>
+          <HomeIcon /></button>
       </div>
     )
   }
 }
+function mapStateToProps (state) {
+  return {
+    road: state.score.road,
+    trekking: state.score.trekking,
+    picture: state.score.picture,
+    fun: state.score.fun,
+    speed: state.score.speed
+  }
+}
 
-export default connect()(withRouter(Completed))
+export default connect(mapStateToProps)(withRouter(Completed))

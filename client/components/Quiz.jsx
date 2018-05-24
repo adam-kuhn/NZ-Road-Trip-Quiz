@@ -20,7 +20,7 @@ class Quiz extends React.Component {
       <div>
         <h1>{quizTopic} Quiz</h1>
         {this.props.showQuestions && <Questions topic={this.props.match.params.topic} />}
-        {this.props.showCompleted && <Completed />}
+        {this.props.showCompleted && <Completed topic={this.props.match.params.topic}/>}
       </div>
     )
   }
