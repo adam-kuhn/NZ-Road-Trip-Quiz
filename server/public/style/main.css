@@ -21,3 +21,8 @@ img {
 .home-button {
   border: none;
 }
+
+.sidebar {
+  width: 20rem;
+  align-self: flex-start;
+}
