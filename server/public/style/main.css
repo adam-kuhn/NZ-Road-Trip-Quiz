@@ -36,3 +36,7 @@ button {
   align-self: flex-start;
   margin-right: 30rem;
 }
+
+.stepper {
+margin-right: 20rem;
+}
