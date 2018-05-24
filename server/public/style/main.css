@@ -25,4 +25,5 @@ img {
 .sidebar {
   width: 20rem;
   align-self: flex-start;
+  margin-right: 30rem;
 }
