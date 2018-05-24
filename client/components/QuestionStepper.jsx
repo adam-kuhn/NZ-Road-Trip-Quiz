@@ -6,7 +6,8 @@ import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward'
 class QuestionStepper extends React.Component {
   render () {
     return (
-      <div style={{width: '100%', maxWidth: 700}}>
+      // <div style={{width: '100%', maxWidth: 700}}>
+      <div className='yes'>
         <Stepper activeStep={this.props.questionNum} connector={<ArrowForwardIcon />}>
           {this.props.questions.map((question) => {
             return (
