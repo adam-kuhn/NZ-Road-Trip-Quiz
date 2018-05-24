@@ -27,10 +27,8 @@ button {
   height: 2rem;
 }
 
-.resp-item :hover {
-  background-color: blue;
-  width: 100%;
-  
+button:hover {
+  background-color: #e5f1fd; 
 }
 .yes {
   background-color: greenyellow;
