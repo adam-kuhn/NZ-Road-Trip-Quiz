@@ -10,17 +10,25 @@ img {
   height: 300px;
 }
 
+button {
+  border-radius: 3.5rem;
+  box-shadow: 1px 2px #af9e9e;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+li {
+  padding: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
 .yes {
   background-color: greenyellow;
 }
 
 .no {
   background-color: #ff000075;
-}
-
-button {
-  border-radius: 3.5rem;
-  box-shadow: 1px 2px #af9e9e;
 }
 
 .sidebar {
