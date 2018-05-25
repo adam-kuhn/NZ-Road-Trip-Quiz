@@ -27,8 +27,15 @@ button {
   height: 2rem;
 }
 
+.resp-item:focus{
+  background-color: #dcf5f3;
+}
+
 button:hover {
   background-color: #e5f1fd; 
+}
+button:focus {
+  outline: none;
 }
 .yes {
   background-color: greenyellow;
