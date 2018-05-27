@@ -58,3 +58,9 @@ button:focus {
 .stepper {
 margin-right: 20rem;
 }
+
+@media (min-width: 1040px) {
+.resp-container {
+  max-width: 65%;
+  }
+}
