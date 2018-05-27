@@ -59,8 +59,8 @@ button:focus {
 margin-right: 20rem;
 }
 
-@media (min-width: 1040px) {
+@media (min-width: 900px) {
 .resp-container {
-  max-width: 65%;
-  }
+  width: 65%;
+}
 }
