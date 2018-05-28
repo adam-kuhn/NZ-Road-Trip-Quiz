@@ -56,9 +56,14 @@ button:focus {
 }
 
 .stepper {
-margin-right: 20rem;
+  display: none;
 }
-
+@media (min-width: 630px) {
+.stepper {
+  display: inline;
+  margin-right: 20rem;
+}
+  }
 @media (min-width: 900px) {
 .resp-container {
   width: 65%;
