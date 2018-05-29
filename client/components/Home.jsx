@@ -10,7 +10,7 @@ function Home (props) {
       <h1>NZ Road Trip Quiz!</h1>
       <p>Select a quiz and have some fun finding out about my New Zealand Road Trip</p>
       {props.showSideBar && <QuizSideBar />}
-      <ImgCarousel />
+      {props.showSideBar && <ImgCarousel />}
     </div>
   )
 }
