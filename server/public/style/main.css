@@ -13,9 +13,11 @@ img {
   width: 400px;
   height: 300px;
 }
+
 .carousel-container {
   width: 30rem;
 }
+
 .thumbs-wrapper {
   display: none;
 }
@@ -58,7 +60,6 @@ button:focus {
 .sidebar {
   width: 20rem;
   align-self: flex-start;
-  margin-right: 30rem;
 }
 
 .stepper {
