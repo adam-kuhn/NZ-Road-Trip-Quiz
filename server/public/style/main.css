@@ -13,6 +13,12 @@ img {
   width: 400px;
   height: 300px;
 }
+.carousel-container {
+  width: 30rem;
+}
+.thumbs-wrapper {
+  display: none;
+}
 
 button {
   border-radius: 3.5rem;

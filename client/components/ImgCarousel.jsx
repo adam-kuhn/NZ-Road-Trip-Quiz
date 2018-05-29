@@ -6,15 +6,17 @@ import images from '../lib/carouselImg'
 class ImgCarousel extends React.Component {
   render () {
     return (
-      <Carousel autoPlay infiniteLoop showArrows={false}>
-        {images.map((image, idx) => {
-          return (
-            <div key={idx}>
-              <img src={image} />
-            </div>
-          )
-        })}
-      </Carousel>
+      <div className='carousel-container'>
+        <Carousel autoPlay infiniteLoop showArrows={true}>
+          {images.map((image, idx) => {
+            return (
+              <div key={idx}>
+                <img src={image} />
+              </div>
+            )
+          })}
+        </Carousel>
+      </div>
     )
   }
 }
