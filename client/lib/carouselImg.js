@@ -1,0 +1,11 @@
+export default ['/images/questions/alluvial_fan.jpg',
+  '/images/questions/east-coast.jpg',
+  '/images/questions/climbing_roys-peak.jpg',
+  '/images/questions/milford-sound.jpg',
+  '/images/questions/mount-alpha-rocks.jpg',
+  '/images/questions/mt-sunday.jpg',
+  '/images/questions/road-to-milford.jpg',
+  '/images/questions/tongariro-crossing.jpg',
+  '/images/descriptions/jellybean.jpg',
+  '/images/descriptions/selfie.jpg',
+  '/images/descriptions/tp.jpg']
