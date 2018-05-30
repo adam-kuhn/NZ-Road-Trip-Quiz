@@ -1,3 +1,13 @@
+body {
+  background-color: #dcdee8;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.quiz {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -10,20 +20,89 @@ img {
   height: 300px;
 }
 
+.carousel-container {
+  width: 30rem;
+}
+
+.thumbs-wrapper {
+  display: none;
+}
+
+button {
+  border-radius: 3.5rem;
+  box-shadow: 1px 2px #af9e9e;
+  margin: 0.3rem;
+}
+.resp-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: 13rem;
+}
+.flex-item {
+  width: 15rem;
+  height: 4rem;
+}
+
+.flex-item:focus{
+  background-color: #dcf5f3;
+}
+
+button:hover {
+  background-color: #e5f1fd; 
+}
+button:focus {
+  outline: none;
+}
 .yes {
   background-color: greenyellow;
+  border-radius: 2rem;
 }
 
 .no {
   background-color: #ff000075;
+  border-radius: 2rem;
 }
 
-.home-button {
-  border: none;
+.description {
+  width: 25rem;
+  text-align: center;
 }
 
 .sidebar {
-  width: 20rem;
-  align-self: flex-start;
-  margin-right: 30rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stepper {
+  display: none;
+}
+@media (min-width: 500px) {
+.resp-container {
+    width: 90%;
+  }
+}
+@media (min-width: 560px) {
+  .resp-container {
+    width: 73%;
+  }
+}
+
+@media (min-width: 630px) {
+.stepper {
+  display: inline;
+  margin-right: 20rem;
+  }
+}
+
+@media (min-width: 700px) {
+.resp-container {
+    width: 83%;
+  }
+}
+
+@media (min-width: 900px) {
+.resp-container {
+  width: 67%;
+  }
 }

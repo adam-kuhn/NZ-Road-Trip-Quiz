@@ -1,16 +1,34 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 
 class QuizSideBar extends React.Component {
+  constructor () {
+    super()
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (e) {
+    this.props.history.push(e.target.value)
+  }
   render () {
     return (
       <ul className='sidebar'>
-        <li><Link to={'/quiz/road'}>Road Quiz</Link>&nbsp;{this.props.roadScore}/10</li>
-        <li><Link to ={'/quiz/trekking'}>Trekking Quiz</Link>&nbsp;{this.props.trekScore}/10</li>
-        <li><Link to ={'/quiz/picture'}>Picture Quiz</Link>&nbsp;{this.props.picScore}/10</li>
-        <li><Link to ={'/quiz/fun'}>Fun Facts Quiz</Link>&nbsp;{this.props.funScore}/10</li>
-        <li><Link to ={'/quiz/speed'}>Speed Round</Link>&nbsp;{this.props.speedScore}/10 - Test your merit, as questions are pulled from all of the above quizes, and you are only given 10 seconds to answer each question.</li>
+        <button className='flex-item quiz' type='button' onClick={this.handleClick} value='/quiz/road'>
+        Road Quiz&nbsp;{this.props.roadScore}/10
+        </button>
+        <button className='flex-item quiz' type='button' onClick={this.handleClick} value='/quiz/trekking'>
+        Trekking Quiz&nbsp;{this.props.trekScore}/10
+        </button>
+        <button className='flex-item quiz' type='button' onClick={this.handleClick} value='/quiz/picture'>
+        Picture Quiz&nbsp;{this.props.picScore}/10
+        </button>
+        <button className='flex-item quiz' type='button' onClick={this.handleClick} value='/quiz/fun'>
+        Fun Facts Quiz&nbsp;{this.props.funScore}/10
+        </button>
+        <button className='flex-item quiz' type='button' onClick={this.handleClick} value='/quiz/speed'>
+        Speed Round&nbsp;{this.props.speedScore}/10
+        </button>
       </ul>
     )
   }
@@ -26,4 +44,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(QuizSideBar)
+export default connect(mapStateToProps)(withRouter(QuizSideBar))

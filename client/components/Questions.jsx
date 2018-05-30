@@ -30,7 +30,7 @@ class Questions extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className='main-container'>
         {this.props.questions[this.props.questionNum].style === 'multi-img'
           ? <div>
             <img src={this.props.questions[this.props.questionNum].image} />

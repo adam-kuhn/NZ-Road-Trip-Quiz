@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {withStyles} from '@material-ui/core/styles'
-import blue from '@material-ui/core/colors/blue'
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const styles = theme => ({
@@ -12,12 +11,6 @@ const styles = theme => ({
   },
   icon: {
     margin: theme.spacing.unit * 2
-  },
-  iconHover: {
-    margin: theme.spacing.unit * 2,
-    '&:hover': {
-      color: blue[200]
-    }
   }
 })
 
