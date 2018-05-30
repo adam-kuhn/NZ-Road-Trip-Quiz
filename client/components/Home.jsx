@@ -7,8 +7,8 @@ import ImgCarousel from './ImgCarousel'
 function Home (props) {
   return (
     <div className='main-container'>
-      <h1>NZ Road Trip Quiz!</h1>
-      <p>Select a quiz and have some fun finding out about my New Zealand Road Trip</p>
+      <h1>NZ Road Trip Quiz</h1>
+      <p>Select a quiz and have some fun finding out about my New Zealand Road Trip!</p>
       {props.showSideBar && <QuizSideBar />}
       {props.showSideBar && <ImgCarousel />}
     </div>
