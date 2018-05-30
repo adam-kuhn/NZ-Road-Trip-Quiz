@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 
@@ -15,11 +14,21 @@ class QuizSideBar extends React.Component {
   render () {
     return (
       <ul className='sidebar'>
-        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/road'>Road Quiz&nbsp;{this.props.roadScore}/10</button>
-        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/trekking'>Trekking Quiz&nbsp;{this.props.trekScore}/10</button>
-        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/picture'>Picture Quiz&nbsp;{this.props.picScore}/10</button>
-        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/fun'>Fun Facts Quiz&nbsp;{this.props.funScore}/10</button>
-        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/speed'>Speed Round&nbsp;{this.props.speedScore}/10 - You have to be quick with only 10 seconds to answer each question!</button>
+        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/road'>
+          <h2>Road Quiz&nbsp;{this.props.roadScore}/10</h2>
+        </button>
+        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/trekking'>
+          <h2>Trekking Quiz&nbsp;{this.props.trekScore}/10</h2>
+        </button>
+        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/picture'>
+          <h2>Picture Quiz&nbsp;{this.props.picScore}/10</h2>
+        </button>
+        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/fun'>
+          <h2>Fun Facts Quiz&nbsp;{this.props.funScore}/10</h2>
+          </button>
+        <button className='flex-item' type='button' onClick={this.handleClick} value='/quiz/speed'>
+          <h2>Speed Round&nbsp;{this.props.speedScore}/10</h2>
+        </button>
       </ul>
     )
   }
