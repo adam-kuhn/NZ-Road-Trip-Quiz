@@ -128,7 +128,7 @@ class Answers extends React.Component {
                       data-description-img={answer.descriptionImg}
                       disabled={this.state.answer} />
                   </label>
-                  : <button type='button' className='resp-item'
+                  : <button type='button' className='flex-item'
                     onClick={this.handleChange} value={answer.id}
                     checked={this.state.selected === answer.id}
                     data-correct={answer.correct}

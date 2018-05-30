@@ -34,13 +34,13 @@ button {
   width: 100%;
   margin-left: 13rem;
 }
-.resp-item {
+.flex-item {
   padding: 1rem;
   width: 15rem;
   height: 4rem;
 }
 
-.resp-item:focus{
+.flex-item:focus{
   background-color: #dcf5f3;
 }
 
