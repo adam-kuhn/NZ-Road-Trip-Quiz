@@ -8,16 +8,16 @@ function Home (props) {
   return (
     <div className='main-container'>
       <h1>NZ Road Trip Quiz</h1>
-      <p>Select a quiz and have some fun finding out about my New Zealand Road Trip!</p>
-      {props.showSideBar && <QuizSideBar />}
-      {props.showSideBar && <ImgCarousel />}
+      {props.showLanding && <p>Select a quiz and have some fun finding out about my New Zealand Road Trip!</p>}
+      {props.showLanding && <QuizSideBar />}
+      {props.showLanding && <ImgCarousel />}
     </div>
   )
 }
 
 function mapStateToProps (state) {
   return {
-    showSideBar: state.display.showSideBar
+    showLanding: state.display.showLanding
   }
 }
 

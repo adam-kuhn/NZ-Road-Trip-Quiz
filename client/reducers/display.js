@@ -1,7 +1,7 @@
 import {GOT_QUIZ, FINISHED, RESET} from '../actions'
 
 const initialState = {
-  showSideBar: true,
+  showLanding: true,
   showQuestions: false,
   showCompleted: false
 }
@@ -11,7 +11,7 @@ function display (state = initialState, action) {
     case (GOT_QUIZ): {
       return {
         ...state,
-        showSideBar: false,
+        showLanding: false,
         showQuestions: true
       }
     }
