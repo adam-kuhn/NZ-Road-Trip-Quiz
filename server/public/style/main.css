@@ -3,6 +3,11 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.quiz {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
