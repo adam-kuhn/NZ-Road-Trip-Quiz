@@ -51,10 +51,17 @@ button:focus {
 }
 .yes {
   background-color: greenyellow;
+  border-radius: 2rem;
 }
 
 .no {
   background-color: #ff000075;
+  border-radius: 2rem;
+}
+
+.description {
+  width: 25rem;
+  text-align: center;
 }
 
 .sidebar {
