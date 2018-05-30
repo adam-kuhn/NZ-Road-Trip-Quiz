@@ -7,7 +7,7 @@ class ImgCarousel extends React.Component {
   render () {
     return (
       <div className='carousel-container'>
-        <Carousel autoPlay infiniteLoop showArrows={true}>
+        <Carousel autoPlay infiniteLoop>
           {images.map((image, idx) => {
             return (
               <div key={idx}>
