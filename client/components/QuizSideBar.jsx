@@ -15,11 +15,11 @@ class QuizSideBar extends React.Component {
   render () {
     return (
       <ul className='sidebar'>
-        <button type='button' onClick={this.handleClick} value='/quiz/road'>Road Quiz&nbsp;{this.props.roadScore}/10</button>
-        <button type='button' onClick={this.handleClick} value='/quiz/trekking'>Trekking Quiz&nbsp;{this.props.trekScore}/10</button>
-        <button type='button' onClick={this.handleClick} value='/quiz/picture'>Picture Quiz&nbsp;{this.props.picScore}/10</button>
-        <button type='button' onClick={this.handleClick} value='/quiz/fun'>Fun Facts Quiz&nbsp;{this.props.funScore}/10</button>
-        <button type='button' onClick={this.handleClick} value='/quiz/speed'>Speed Round&nbsp;{this.props.speedScore}/10 - Test your merit, as questions are pulled from all of the above quizes, and you are only given 10 seconds to answer each question.</button>
+        <button className='resp-item' type='button' onClick={this.handleClick} value='/quiz/road'>Road Quiz&nbsp;{this.props.roadScore}/10</button>
+        <button className='resp-item' type='button' onClick={this.handleClick} value='/quiz/trekking'>Trekking Quiz&nbsp;{this.props.trekScore}/10</button>
+        <button className='resp-item' type='button' onClick={this.handleClick} value='/quiz/picture'>Picture Quiz&nbsp;{this.props.picScore}/10</button>
+        <button className='resp-item' type='button' onClick={this.handleClick} value='/quiz/fun'>Fun Facts Quiz&nbsp;{this.props.funScore}/10</button>
+        <button className='resp-item' type='button' onClick={this.handleClick} value='/quiz/speed'>Speed Round&nbsp;{this.props.speedScore}/10 - You have to be quick with only 10 seconds to answer each question!</button>
       </ul>
     )
   }
