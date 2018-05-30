@@ -58,8 +58,8 @@ button:focus {
 }
 
 .sidebar {
-  width: 20rem;
-  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .stepper {
